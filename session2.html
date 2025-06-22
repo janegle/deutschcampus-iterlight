@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="EU Reading Passages für B1 Deutschlernende - Interaktive Lektionen">
+    <title>EU Reading Passages für B1 Deutschlernende - Deutsch Campus</title>
+    <style>
+        /* Base Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .lesson-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .main-header {
+            text-align: center;
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .main-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .main-header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Navigation Tabs */
+        .lesson-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 0.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .tab-button {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            padding: 1rem 2rem;
+            margin: 0 0.5rem;
+            border-radius: 10px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-height: 44px;
+        }
+
+        .tab-button:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .tab-button.active {
+            background: white;
+            color: #667eea;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Lesson Content */
+        .lesson-content {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .lesson-panel {
+            display: none;
+        }
+
+        .lesson-panel.active {
+            display: block;
+        }
+
+        /* Reading Section */
+        .reading-section {
+            background: linear-gradient(145deg, #f8f9ff, #e8ecff);
+            border-left: 6px solid #007bff;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 5px 15px rgba(0,123,255,0.1);
+        }
+
+        .reading-section h2 {
+            color: #007bff;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .reading-section .subtitle {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .reading-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .reading-text p {
+            margin-bottom: 1rem;
+        }
+
+        .reading-text ul {
+            margin: 1rem 0 1rem 2rem;
+        }
+
+        .reading-text li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Vocabulary Section */
+        .vocabulary-section {
+            background: linear-gradient(145deg, #f0f7ff, #e1f0ff);
+            border-left: 6px solid #007bff;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .vocabulary-section h3 {
+            color: #007bff;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .german-line {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .vocab-item {
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            border-left: 4px solid #007bff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .vocab-item .german {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .vocab-item .vietnamese {
+            color: #666;
+            font-style: italic;
+            display: block;
+            margin-top: 0.25rem;
+        }
+
+        .vocab-item .action-icons {
+            float: right;
+        }
+
+        .vocab-item .audio-icon {
+            cursor: pointer;
+            margin-left: 0.5rem;
+        }
+
+        .vocab-item .ipa {
+            font-style: italic;
+            color: #666;
+            margin-top: 0.25rem;
+        }
+
+        .sample-sentence {
+            display: block;
+            margin-top: 0.5rem;
+            color: #555;
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+
+        /* Interactive Exercises */
+        .exercise-section {
+            background: linear-gradient(145deg, #fff5e6, #ffe6cc);
+            border-left: 6px solid #fd7e14;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .exercise-section h3 {
+            color: #fd7e14;
+            margin-bottom: 1rem;
+        }
+
+        .exercise-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .question {
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .answer-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .answer-input:focus {
+            outline: none;
+            border-color: #fd7e14;
+            box-shadow: 0 0 0 3px rgba(253,126,20,0.1);
+        }
+
+        .check-button {
+            background: #fd7e14;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            min-height: 44px;
+        }
+
+        .check-button:hover {
+            background: #e66a02;
+            transform: translateY(-1px);
+        }
+
+        .feedback {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .feedback.correct {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .feedback.incorrect {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        /* Writing Task Section */
+        .writing-section {
+            background: linear-gradient(145deg, #e8f5e8, #d4e8d4);
+            border-left: 6px solid #28a745;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .writing-section h3 {
+            color: #28a745;
+            margin-bottom: 1rem;
+        }
+
+        .writing-task {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .writing-area {
+            width: 100%;
+            min-height: 200px;
+            padding: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            resize: vertical;
+            transition: border-color 0.3s ease;
+        }
+
+        .writing-area:focus {
+            outline: none;
+            border-color: #28a745;
+            box-shadow: 0 0 0 3px rgba(40,167,69,0.1);
+        }
+
+        .word-count {
+            text-align: right;
+            margin-top: 0.5rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .save-indicator {
+            color: #28a745;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .lesson-tabs {
+                flex-wrap: wrap;
+            }
+
+            .tab-button {
+                flex: 1;
+                min-width: 120px;
+                margin: 0.25rem;
+                padding: 0.75rem 1rem;
+            }
+
+            .lesson-content {
+                padding: 1rem;
+            }
+
+            .main-header h1 {
+                font-size: 2rem;
+            }
+
+            .vocab-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white !important;
+                color: black !important;
+            }
+
+            .lesson-container {
+                max-width: none !important;
+                padding: 0 !important;
+            }
+
+            .lesson-tabs {
+                display: none !important;
+            }
+
+            .lesson-panel {
+                display: block !important;
+                page-break-before: always;
+            }
+
+            .lesson-panel:first-child {
+                page-break-before: avoid;
+            }
+
+            .main-header {
+                color: black !important;
+            }
+
+            .reading-section,
+            .vocabulary-section,
+            .exercise-section,
+            .writing-section {
+                background: white !important;
+                border: 2px solid black !important;
+                box-shadow: none !important;
+                page-break-inside: avoid;
+            }
+
+            .check-button {
+                display: none !important;
+            }
+
+            .feedback {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="lesson-container">
+        <header class="main-header">
+            <h1>EU Reading Passages f&uuml;r B1 Deutschlernende</h1>
+            <p class="subtitle">Bài đọc về EU cho học viên tiếng Đức trình độ B1</p>
+        </header>
+
+        <nav class="lesson-tabs">
+            <button class="tab-button active" onclick="showLesson(1)">Text 1: Schengen</button>
+            <button class="tab-button" onclick="showLesson(2)">Text 2: Arbeitsfreiheit</button>
+            <button class="tab-button" onclick="showLesson(3)">Text 3: Euro</button>
+            <button class="tab-button" onclick="showLesson(4)">Text 4: Kultur</button>
+        </nav>
+
+        <div class="lesson-content">
+            <!-- Lektion 1: Schengen -->
+            <div id="lesson1" class="lesson-panel active">
+                <div class="reading-section">
+                    <h2>Text 1: Mit einem Visum durch ganz Europa! 🌍</h2>
+                    <p class="subtitle"><em>Schengen - Reisefreiheit / Tự do du lịch</em></p>
+                    
+                    <div class="reading-text">
+                        <h3>Linhs gro&szlig;es Europa-Abenteuer</h3>
+                        
+                        <p>Linh kommt aus Ho Chi Minh Stadt und hat ein gro&szlig;es Problem: Sie m&ouml;chte Europa besuchen, aber es gibt so viele L&auml;nder! Muss sie f&uuml;r jedes Land ein neues Visum beantragen?</p>
+
+                        <p>"Nein!", sagt ihr Freund Max aus Deutschland. "Du brauchst nur ein Schengen-Visum. Das ist wie ein Zauberschl&uuml;ssel f&uuml;r 27 europ&auml;ische L&auml;nder!"</p>
+
+                        <p>Linh ist sehr gl&uuml;cklich. Mit ihrem deutschen Schengen-Visum kann sie:</p>
+                        <ul>
+                            <li>In Berlin studieren</li>
+                            <li>Nach Paris fahren (nur 4 Stunden mit dem Zug!)</li>
+                            <li>In Rom Pizza essen</li>
+                            <li>In Amsterdam Fahrrad fahren</li>
+                            <li>In Barcelona am Strand liegen</li>
+                        </ul>
+
+                        <p>Sie braucht ihren Pass nicht zeigen, wenn sie von Deutschland nach Frankreich f&auml;hrt. Es ist wie in Vietnam: Sie kann von Hanoi nach Ho Chi Minh Stadt fahren - alles ist ein Land!</p>
+
+                        <p>"Das ist fantastisch!", denkt Linh. "In drei Wochen besuche ich 8 L&auml;nder mit nur einem Visum. Das spart Zeit und Geld!"</p>
+
+                        <p>Am Flughafen zeigt sie ihr Visum nur einmal - in Frankfurt. Dann kann sie &uuml;berall in Europa reisen. Europa ist wirklich wie ein gro&szlig;es Land geworden!</p>
+                    </div>
+                </div>
+
+                <div class="vocabulary-section">
+                    <h3>Neue W&ouml;rter / Từ mới</h3>
+                    <div class="vocab-grid">
+                        <div class="vocab-item">
+                            <div class="german-line">
+                                <span class="german">das Schengen-Visum</span>
+                                <span class="action-icons">
+                                    <a href="https://www.google.com/search?tbm=isch&q=das+Schengen-Visum" target="_blank" title="Bilder anzeigen">🖼️</a>
+                                    <span class="audio-icon" onclick="playGermanTTS('das Schengen-Visum')" title="Aussprache anhören">🔊</span>
+                                </span>
+                            </div>
+                            <span class="ipa">[ˈʃɛŋənˌviːzʊm]</span>
+                            <span class="vietnamese">thị thực Schengen</span>
+                            <span class="sample-sentence">  Mit einem Schengen-Visum kann man 27 Länder besuchen.</span>
+                        </div>
+                        <div class="vocab-item">
+                            <div class="german-line">
+                                <span class="german">beantragen</span>
+                                <span class="action-icons">
+                                    <a href="https://www.google.com/search?tbm=isch&q=beantragen" target="_blank" title="Bilder anzeigen">🖼️</a>
+                                    <span class="audio-icon" onclick="playGermanTTS('beantragen')" title="Aussprache anhören">🔊</span>
+                                </span>
+                            </div>
+                            <span class="ipa">[bəˈʔantʁaːɡn̩]</span>
+                            <span class="vietnamese">nộp đơn xin</span>
+                            <span class="sample-sentence">  Ich muss ein Visum beantragen.</span>
+                        </div>
+                        <div class="vocab-item">
+                            <div class="german-line">
+                                <span class="german">der Zauberschlüssel</span>
+                                <span class="action-icons">
+                                    <a href="https://www.google.com/search?tbm=isch&q=der+Zauberschlüssel" target="_blank" title="Bilder anzeigen">🖼️</a>
+                                    <span class="audio-icon" onclick="playGermanTTS('der Zauberschlüssel')" title="Aussprache anhören">🔊</span>
+                                </span>
+                            </div>
+                            <span class="ipa">[ˈt͡saʊ̯bɐˌʃlʏsl̩]</span>
+                            <span class="vietnamese">chìa khóa phép thuật</span>
+                            <span class="sample-sentence">  Das Visum ist wie ein Zauberschlüssel.</span>
+                        </div>
+                        <div class="vocab-item">
+                             <div class="german-line">
+                                <span class="german">zeigen</span>
+                                <span class="action-icons">
+                                    <a href="https://www.google.com/search?tbm=isch&q=zeigen" target="_blank" title="Bilder anzeigen">🖼️</a>
+                                    <span class="audio-icon" onclick="playGermanTTS('zeigen')" title="Aussprache anhören">🔊</span>
+                                </span>
+                            </div>
+                            <span class="ipa">[ˈt͡saɪ̯ɡn̩]</span>
+                            <span class="vietnamese">cho xem</span>
+                            <span class="sample-sentence">  Bitte zeigen Sie mir Ihren Pass.</span>
+                        </div>
+                        <div class="vocab-item">
+                             <div class="german-line">
+                                <span class="german">sparen</span>
+                                <span class="action-icons">
+                                    <a href="https://www.google.com/search?tbm=isch&q=sparen" target="_blank" title="Bilder anzeigen">🖼️</a>
+                                    <span class="audio-icon" onclick="playGermanTTS('sparen')" title="Aussprache anhören">🔊</span>
+                                </span>
+                            </div>
+                            <span class="ipa">[ˈʃpaːʁən]</span>
+                            <span class="vietnamese">tiết kiệm</span>
+                            <span class="sample-sentence">  Das spart Zeit und Geld.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exercise-section">
+                    <h3>Interaktive &Uuml;bungen / Bài tập tương tác</h3>
+                    
+                    <div class="exercise-item">
+                        <div class="question">
+                            <strong>Frage 1:</strong> Welche L&auml;nder kann Linh mit einem Schengen-Visum besuchen?<br>
+                            <em>Câu hỏi 1: Linh có thể thăm những nước nào với thị thực Schengen?</em>
+                        </div>
+                        <input type="text" class="answer-input" id="q1_1" placeholder="Ihre Antwort hier... / Câu trả lời của bạn ở đây...">
+                        <button class="check-button" onclick="checkAnswer('q1_1', '27 europäische länder', 'Richtig! Mit einem Schengen-Visum kann man 27 europäische Länder besuchen.')">
+                            Antwort pr&uuml;fen / Kiểm tra đáp án
+                        </button>
+                        <div id="feedback_q1_1" class="feedback" style="display: none;"></div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <div class="question">
+                            <strong>Frage 2:</strong> Wie oft muss Linh ihren Pass zeigen?<br>
+                            <em>Câu hỏi 2: Linh phải xuất trình hộ chiếu bao nhiều lần?</em>
+                        </div>
+                        <input type="text" class="answer-input" id="q1_2" placeholder="Ihre Antwort hier... / Câu trả lời của bạn ở đây...">
+                        <button class="check-button" onclick="checkAnswer('q1_2', 'nur einmal', 'Richtig! Sie muss ihren Pass nur einmal zeigen - am Flughafen in Frankfurt.')">
+                            Antwort pr&uuml;fen / Kiểm tra đáp án
+                        </button>
+                        <div id="feedback_q1_2" class="feedback" style="display: none;"></div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <div class="question">
+                            <strong>Vergleich:</strong> Vergleichen Sie Vietnam (63 Provinzen) mit der EU (27 L&auml;nder)<br>
+                            <em>So sánh: So sánh Việt Nam (63 tỉnh) với EU (27 nước)</em>
+                        </div>
+                        <input type="text" class="answer-input" id="q1_3" placeholder="Ihre Antwort hier... / Câu trả lời của bạn ở đây...">
+                        <button class="check-button" onclick="checkAnswer('q1_3', 'vietnam provinzen eu länder', 'Sehr gut! Beide funktionieren ähnlich - man kann frei zwischen verschiedenen Gebieten reisen.')">
+                            Antwort pr&uuml;fen / Kiểm tra đáp án
+                        </button>
+                        <div id="feedback_q1_3" class="feedback" style="display: none;"></div>
+                    </div>
+                </div>
+
+                <div class="writing-section">
+                    <h3>Schreibaufgabe / Bài tập viết</h3>
+                    <div class="writing-task">
+                        <h4>Meine Traumreise durch Europa 🗺️</h4>
+                        <p><strong>Aufgabe:</strong> Planen Sie eine 2-Wochen-Reise durch Europa!<br>
+                        <em>Nhiệm vụ: Lập kế hoạch du lịch châu Âu trong 2 tuần!</em></p>
+                        
+                        <p><strong>Schreiben Sie (100-120 W&ouml;rter) &uuml;ber:</strong><br>
+                        <em>Viết (100-120 từ) về:</em></p>
+                        <ul>
+                            <li>Start: Welche deutsche Stadt besuchen Sie zuerst? / Bắt đầu: Bạn thăm thành phố Đức nào trước?</li>
+                            <li>Route: Welche 5 L&auml;nder m&ouml;chten Sie besuchen? / Lộ trình: Bạn muốn thăm 5 nước nào?</li>
+                            <li>Transport: Wie fahren Sie? / Phương tiện: Bạn đi bằng gì?</li>
+                            <li>Highlights: Was m&ouml;chten Sie sehen? / Điểm nổi bật: Bạn muốn xem gì?</li>
+                        </ul>
+                        
+                        <textarea class="writing-area" id="writing_1" placeholder="Schreiben Sie hier Ihre Traumreise... / Viết chuyến du lịch mơ ước của bạn ở đây..." onkeyup="updateWordCount('writing_1'); autoSave('writing_1')"></textarea>
+                        <div class="word-count" id="count_writing_1">0 W&ouml;rter / từ</div>
+                        <div class="save-indicator" id="save_writing_1" style="display: none;">✓ Automatisch gespeichert / Đã tự động lưu</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lektion 2: Arbeitsfreiheit -->
+            <div id="lesson2" class="lesson-panel">
+                <div class="reading-section">
+                    <h2>Text 2: Maria arbeitet in ganz Europa! 💼</h2>
+                    <p class="subtitle"><em>Arbeitsfreiheit / Tự do lao động</em></p>
+                    
+                    <div class="reading-text">
+                        <h3>Von Spanien nach Deutschland - kein Problem!</h3>
+                        
+                        <p>Maria Rodriguez kommt aus Madrid. Sie ist Ingenieurin und arbeitet jetzt bei BMW in M&uuml;nchen. Wie ist das m&ouml;glich?</p>
+
+                        <p>"Ganz einfach!", erkl&auml;rt Maria. "Ich bin EU-B&uuml;rgerin. Das bedeutet: Ich kann in allen EU-L&auml;ndern arbeiten!"</p>
+
+                        <p>Maria musste keine Arbeitserlaubnis beantragen. Sie musste auch keinen schwierigen Test machen. Sie hat nur ihre spanischen Dokumente nach Deutschland mitgenommen.</p>
+
+                        <p>Bei BMW arbeiten Menschen aus vielen EU-L&auml;ndern:</p>
+                        <ul>
+                            <li>Luigi aus Italien (er entwickelt Motoren)</li>
+                            <li>Pierre aus Frankreich (er designt Autos)</li>
+                            <li>Katarina aus Polen (sie leitet das Marketing)</li>
+                            <li>Jan aus den Niederlanden (er ist im Verkauf)</li>
+                        </ul>
+
+                        <p>"Wir sprechen Deutsch bei der Arbeit", sagt Maria. "Aber in der Pause sprechen wir manchmal Spanisch, Italienisch oder Franz&ouml;sisch. Das ist lustig!"</p>
+
+                        <p>Marias deutscher Kollege Thomas möchte nächstes Jahr in Barcelona arbeiten. "Kein Problem!", sagt Maria. "Du bist auch EU-Bürger. Du kannst überall in Europa arbeiten!"</p>
+
+                        <p>So funktioniert die EU: 450 Millionen Menschen können in 27 Ländern leben und arbeiten. Sie sind alle eine große europäische Familie!</p>
+                    </div>
+                </div>
+
+                <div class="vocabulary-section">
+                    <h3>Neue W&ouml;rter / Từ mới</h3>
+                    <div class="vocab-grid">
+                        <div class="vocab-item">
+                            <div class="german-line">
+                                <span class="german">der EU-B&uuml;rger</span>
+                                <span class="action-icons">
+                                    <a href="https://www.google.com/search?tbm=isch&q=EU-Bürger" target="_blank" title="Bilder anzeigen">🖼️</a>
+                                    <span class="audio-icon" onclick="playGermanTTS('der EU-Bürger')" title="Aussprache anhören">🔊</span>
+                                </span>
+                            </div>
+                            <span class="ipa">[eːˈʔuːˌbʏʁɡɐ]</span>
+                            <span class="vietnamese">công dân EU</span>
+                            <span class="sample-sentence">  Als EU-Bürger kann man in 27 Ländern arbeiten.</span>
+                        </div>
+                        <div class="vocab-item">
+                            <div class="german-line">
+                                <span class="german">die Arbeitserlaubnis</span>
+                                <span class="action-icons">
+                                    <a href="https://www.google.com/search?tbm=isch&q=die+Arbeitserlaubnis" target="_blank" title="Bilder anzeigen">🖼️</a>
+                                    <span class="audio-icon" onclick="playGermanTTS('die Arbeitserlaubnis')" title="Aussprache anhören">🔊</span>
+                                </span>
+                            </div>
+                            <span class="ipa">[ˈaʁbaɪ̯t͡sʔɛɐ̯ˌlaʊ̯pnɪs]</span>
+                            <span class="vietnamese">giấy phép lao động</span>
+                            <span class="sample-sentence">  Sie braucht keine Arbeitserlaubnis.</span>
+                        </div>
+                        <div class="vocab-item">
+                            <div class="german-line">
+                                <span class="german">entwickeln</span>
+                                <span class="action-icons">
+                                    <a href="https://www.google.com/search?tbm=isch&q=entwickeln" target="_blank" title="Bilder anzeigen">🖼️</a>
+                                    <span class="audio-icon" onclick="playGermanTTS('entwickeln')" title="Aussprache anhören">🔊</span>
+                                </span>
+                            </div>
+                            <span class="ipa">[ɛntˈvɪkl̩n]</span>
+                            <span class="vietnamese">phát triển</span>
+                            <span class="sample-sentence">  Er entwickelt neue Motoren für Autos.</span>
+                        </div>
+                        <div class="vocab-item">
+                            <div class="german-line">
+                                <span class="german">leiten</span>
+                                <span class="action-icons">
+                                    <a href="https://www.google.com/search?tbm=isch&q=leiten" target="_blank" title="Bilder anzeigen">🖼️</a>
+                                    <span class="audio-icon" onclick="playGermanTTS('leiten')" title="Aussprache anhören">🔊</span>
+                                </span>
+                            </div>
+                            <span class="ipa">[ˈlaɪ̯tn̩]</span>
+                            <span class="vietnamese">quản lý</span>
+                            <span class="sample-sentence">  Sie leitet die Marketing-Abteilung.</span>
+                        </div>
+                        <div class="vocab-item">
+                            <div class="german-line">
+                                <span class="german">der Kollege</span>
+                                <span class="action-icons">
+                                    <a href="https://www.google.com/search?tbm=isch&q=der+Kollege" target="_blank" title="Bilder anzeigen">🖼️</a>
+                                    <span class="audio-icon" onclick="playGermanTTS('der Kollege')" title="Aussprache anhören">🔊</span>
+                                </span>
+                            </div>
+                            <span class="ipa">[kɔˈleːɡə]</span>
+                            <span class="vietnamese">đồng nghiệp</span>
+                            <span class="sample-sentence">  Mein Kollege kommt aus Spanien.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exercise-section">
+                    <h3>Interaktive &Uuml;bungen / Bài tập tương tác</h3>
+                    
+                    <div class="exercise-item">
+                        <div class="question">
+                            <strong>Frage 1:</strong> Welche Nationalit&auml;ten arbeiten bei BMW?<br>
+                            <em>Câu hỏi 1: Người những nước nào làm việc tại BMW?</em>
+                        </div>
+                        <input type="text" class="answer-input" id="q2_1" placeholder="Ihre Antwort hier... / Câu trả lời của bạn ở đây...">
+                        <button class="check-button" onclick="checkAnswer('q2_1', 'spanien italien frankreich polen niederlande deutschland', 'Richtig! Bei BMW arbeiten Menschen aus Spanien, Italien, Frankreich, Polen, den Niederlanden und Deutschland.')">
+                            Antwort pr&uuml;fen / Kiểm tra đáp án
+                        </button>
+                        <div id="feedback_q2_1" class="feedback" style="display: none;"></div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <div class="question">
+                            <strong>Frage 2:</strong> Was braucht Maria NICHT f&uuml;r ihre Arbeit in Deutschland?<br>
+                            <em>Câu hỏi 2: Maria KHÔNG cần gì để làm việc ở Đức?</em>
+                        </div>
+                        <input type="text" class="answer-input" id="q2_2" placeholder="Ihre Antwort hier... / Câu trả lời của bạn ở đây...">
+                        <button class="check-button" onclick="checkAnswer('q2_2', 'arbeitserlaubnis test', 'Richtig! Sie braucht keine Arbeitserlaubnis und keinen schwierigen Test.')">
+                            Antwort pr&uuml;fen / Kiểm tra đáp án
+                        </button>
+                        <div id="feedback_q2_2" class="feedback" style="display: none;"></div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <div class="question">
+                            <strong>Diskussion:</strong> K&ouml;nntet ihr in EU-L&auml;ndern arbeiten?<br>
+                            <em>Thảo luận: Các bạn có thể làm việc ở các nước EU không?</em>
+                        </div>
+                        <input type="text" class="answer-input" id="q2_3" placeholder="Ihre Antwort hier... / Câu trả lời của bạn ở đây...">
+                        <button class="check-button" onclick="checkAnswer('q2_3', 'visum arbeitserlaubnis', 'Gute Antwort! Als Nicht-EU-Bürger brauchen Sie ein Visum und eine Arbeitserlaubnis.')">
+                            Antwort pr&uuml;fen / Kiểm tra đáp án
+                        </button>
+                        <div id="feedback_q2_3" class="feedback" style="display: none;"></div>
+                    </div>
+                </div>
+
+                <div class="writing-section">
+                    <h3>Schreibaufgabe / Bài tập viết</h3>
+                    <div class="writing-task">
+                        <h4>Deutsche Firmen suchen Vietnamese! 💼</h4>
+                        <p><strong>Aufgabe:</strong> Finden Sie echte Jobs f&uuml;r Vietnamese in EU-L&auml;ndern!<br>
+                        <em>Nhiệm vụ: Tìm việc làm thực tế cho người Việt ở các nước EU!</em></p>
+                        
+                        <p><strong>Schreiben Sie einen Bericht (100-120 W&ouml;rter):</strong><br>
+                        <em>Viết một báo cáo (100-120 từ):</em></p>
+                        <ul>
+                            <li>Firma: Welche deutsche/EU-Firma? / Công ty: Công ty Đức/EU nào?</li>
+                            <li>Job: Welche Position? / Việc làm: Vị trí nào?</li>
+                            <li>Anforderungen: Deutschkenntnisse? / Yêu cầu: Kiến thức tiếng Đức?</li>
+                            <li>Gehalt: Wie viel pro Monat? / Lương: Bao nhiều mỗi tháng?</li>
+                        </ul>
+                        
+                        <textarea class="writing-area" id="writing_2" placeholder="Schreiben Sie hier Ihren Jobreport... / Viết báo cáo việc làm của bạn ở đây..." onkeyup="updateWordCount('writing_2'); autoSave('writing_2')"></textarea>
+                        <div class="word-count" id="count_writing_2">0 W&ouml;rter / từ</div>
+                        <div class="save-indicator" id="save_writing_2" style="display: none;">✓ Automatisch gespeichert / Đã tự động lưu</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lektion 3: Euro -->
+            <div id="lesson3" class="lesson-panel">
+                <div class="reading-section">
+                    <h2>Text 3: Ein Geld, eine Bank, ein Europa! 💶</h2>
+                    <p class="subtitle"><em>Gemeinsame Infrastruktur / Cơ sở hạ tầng chung</em></p>
+                    
+                    <div class="reading-text">
+                        <h3>Tuấns Eurotrip ohne Probleme</h3>
+                        
+                        <p>Tuấn macht eine Reise durch Europa. In seinem Portemonnaie hat er nur Euro-Münzen und Euro-Scheine. Reicht das?</p>
+
+                        <p>"Ja, das reicht!", sagt seine Freundin Lan. "In 20 EU-Ländern bezahlst du mit Euro!"</p>
+
+                        <p>Tuấns Reise beginnt in Deutschland. Er kauft ein Buch für 15 Euro. Dann fährt er nach Österreich und isst Schnitzel für 12 Euro. In Italien kostet sein Hotel 45 Euro pro Nacht.</p>
+
+                        <p>&Uuml;berall kann er mit seiner deutschen EC-Karte bezahlen. Am Automaten in Paris bekommt er Euro-Geld - ohne extra Kosten!</p>
+
+                        <p>"Das ist praktisch!", denkt Tuấn. "Ich muss kein Geld wechseln. Ich kenne die Preise sofort!"</p>
+
+                        <p>In jedem Land sieht das Geld gleich aus:</p>
+                        <ul>
+                            <li>5-Euro-Schein = gr&uuml;n</li>
+                            <li>10-Euro-Schein = rot</li>
+                            <li>20-Euro-Schein = blau</li>
+                        </ul>
+
+                        <p>Die M&uuml;nzen sind ein bisschen anders. Deutsche M&uuml;nzen haben einen Adler, franz&ouml;sische M&uuml;nzen haben einen Baum. Aber alle haben den gleichen Wert!</p>
+
+                        <p>Tuấns Freund Huy kommt aus England. Er braucht britische Pfund. "Das ist kompliziert!", sagt Huy. "Ich muss immer rechnen: Wie viel ist das in Pfund?"</p>
+
+                        <p>Tuấn ist froh: "Zum Gl&uuml;ck habe ich Euro!"</p>
+                    </div>
+                </div>
+
+                <div class="vocabulary-section">
+                    <h3>Neue W&ouml;rter / Từ mới</h3>
+                    <div class="vocab-grid">
+                        <div class="vocab-item">
+                            <div class="german-line">
+                                <span class="german">das Portemonnaie</span>
+                                <span class="action-icons">
+                                    <a href="https://www.google.com/search?tbm=isch&q=das+Portemonnaie" target="_blank" title="Bilder anzeigen">🖼️</a>
+                                    <span class="audio-icon" onclick="playGermanTTS('das Portemonnaie')" title="Aussprache anhören">🔊</span>
+                                </span>
+                            </div>
+                            <span class="ipa">[pɔʁtmɔˈneː]</span>
+                            <span class="vietnamese">ví tiền</span>
+                            <span class="sample-sentence">  Ich habe kein Geld im Portemonnaie.</span>
+                        </div>
+                        <div class="vocab-item">
+                            <div class="german-line">
+                                <span class="german">reichen</span>
+                                <span class="action-icons">
+                                    <a href="https://www.google.com/search?tbm=isch&q=reichen" target="_blank" title="Bilder anzeigen">🖼️</a>
+                                    <span class="audio-icon" onclick="playGermanTTS('reichen')" title="Aussprache anhören">🔊</span>
+                                </span>
+                            </div>
+                            <span class="ipa">[ˈʁaɪ̯çn̩]</span>
+                            <span class="vietnamese">đủ</span>
+                            <span class="sample-sentence">  10 Euro reichen für ein Mittagessen.</span>
+                        </div>
+                        <div class="vocab-item">
+                            <div class="german-line">
+                                <span class="german">der Automat</span>
+                                <span class="action-icons">
+                                    <a href="https://www.google.com/search?tbm=isch&q=der+Automat" target="_blank" title="Bilder anzeigen">🖼️</a>
+                                    <span class="audio-icon" onclick="playGermanTTS('der Automat')" title="Aussprache anhören">🔊</span>
+                                </span>
+                            </div>
+                            <span class="ipa">[aʊ̯toˈmaːt]</span>
+                            <span class="vietnamese">máy ATM</span>
+                            <span class="sample-sentence">  Ich hole Geld am Automaten.</span>
+                        </div>
+                        <div class="vocab-item">
+                            <div class="german-line">
+                                <span class="german">wechseln</span>
+                                <span class="action-icons">
+                                    <a href="https://www.google.com/search?tbm=isch&q=wechseln" target="_blank" title="Bilder anzeigen">🖼️</a>
+                                    <span class="audio-icon" onclick="playGermanTTS('wechseln')" title="Aussprache anhören">🔊</span>
+                                </span>
+                            </div>
+                            <span class="ipa">[ˈvɛksl̩n]</span>
+                            <span class="vietnamese">đổi (tiền)</span>
+                            <span class="sample-sentence">  Ich muss Euro in Dong wechseln.</span>
+                        </div>
+                        <div class="vocab-item">
+                            <div class="german-line">
+                                <span class="german">der Wert</span>
+                                <span class="action-icons">
+                                    <a href="https://www.google.com/search?tbm=isch&q=der+Wert" target="_blank" title="Bilder anzeigen">🖼️</a>
+                                    <span class="audio-icon" onclick="playGermanTTS('der Wert')" title="Aussprache anhören">🔊</span>
+                                </span>
+                            </div>
+                            <span class="ipa">[veːɐ̯t]</span>
+                            <span class="vietnamese">giá trị</span>
+                            <span class="sample-sentence">  Die Münzen haben den gleichen Wert.</span>
+                        </div>
+                        <div class="vocab-item">
+                            <div class="german-line">
+                                <span class="german">rechnen</span>
+                                <span class="action-icons">
+                                    <a href="https://www.google.com/search?tbm=isch&q=rechnen" target="_blank" title="Bilder anzeigen">🖼️</a>
+                                    <span class="audio-icon" onclick="playGermanTTS('rechnen')" title="Aussprache anhören">🔊</span>
+                                </span>
+                            </div>
+                            <span class="ipa">[ˈʁɛçnən]</span>
+                            <span class="vietnamese">tính toán</span>
+                            <span class="sample-sentence">  Im Kopf rechnen ist schwer.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exercise-section">
+                    <h3>Interaktive &Uuml;bungen / Bài tập tương tác</h3>
+                    
+                    <div class="exercise-item">
+                        <div class="question">
+                            <strong>Frage 1:</strong> In wie vielen L&auml;ndern kann Tuấn mit Euro bezahlen?<br>
+                            <em>Câu hỏi 1: Tuấn có thể thanh toán bằng Euro ở bao nhiều nước?</em>
+                        </div>
+                        <input type="text" class="answer-input" id="q3_1" placeholder="Ihre Antwort hier... / Câu trả lời của bạn ở đây...">
+                        <button class="check-button" onclick="checkAnswer('q3_1', '20 ländern', 'Richtig! Tuấn kann in 20 EU-Ländern mit Euro bezahlen.')">
+                            Antwort pr&uuml;fen / Kiểm tra đáp án
+                        </button>
+                        <div id="feedback_q3_1" class="feedback" style="display: none;"></div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <div class="question">
+                            <strong>Frage 2:</strong> Was ist praktisch am Euro?<br>
+                            <em>Câu hỏi 2: Đồng Euro tiện lợi ở những điểm nào?</em>
+                        </div>
+                        <input type="text" class="answer-input" id="q3_2" placeholder="Ihre Antwort hier... / Câu trả lời của bạn ở đây...">
+                        <button class="check-button" onclick="checkAnswer('q3_2', 'kein geld wechseln preise sofort kennen', 'Richtig! Man muss kein Geld wechseln und kennt die Preise sofort.')">
+                            Antwort pr&uuml;fen / Kiểm tra đáp án
+                        </button>
+                        <div id="feedback_q3_2" class="feedback" style="display: none;"></div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <div class="question">
+                            <strong>Rechnen Sie:</strong> 15 Euro = ______ Vietnam Dong (circa)<br>
+                            <em>Tính toán: 15 Euro = ______ Đồng Việt Nam (khoảng)</em>
+                        </div>
+                        <input type="text" class="answer-input" id="q3_3" placeholder="Ihre Antwort hier... / Câu trả lời của bạn ở đây...">
+                        <button class="check-button" onclick="checkAnswer('q3_3', '450000', 'Ungefähr richtig! 15 Euro sind circa 450.000 VND (Wechselkurs kann variieren).')">
+                            Antwort pr&uuml;fen / Kiểm tra đáp án
+                        </button>
+                        <div id="feedback_q3_3" class="feedback" style="display: none;"></div>
+                    </div>
+                </div>
+
+                <div class="writing-section">
+                    <h3>Schreibaufgabe / Bài tập viết</h3>
+                    <div class="writing-task">
+                        <h4>Euro vs. Dong - Preisvergleich! 💰</h4>
+                        <p><strong>Aufgabe:</strong> Vergleichen Sie Preise in Deutschland und Vietnam!<br>
+                        <em>Nhiệm vụ: So sánh giá cả ở Đức và Việt Nam!</em></p>
+                        
+                        <p><strong>Schreiben Sie eine Analyse (100-120 W&ouml;rter):</strong><br>
+                        <em>Viết một phân tích (100-120 từ):</em></p>
+                        <ul>
+                            <li>Essen: Pizza in Deutschland vs. Phở in Vietnam</li>
+                            <li>Transport: U-Bahn Berlin vs. Xe ôm Saigon</li>
+                            <li>Wohnen: WG-Zimmer M&uuml;nchen vs. Apartment Hanoi</li>
+                            <li>Fazit: Wo ist das Leben teurer? / Kết luận: Sống ở đâu đắt hơn?</li>
+                        </ul>
+                        
+                        <textarea class="writing-area" id="writing_3" placeholder="Schreiben Sie hier Ihren Preisvergleich... / Viết so sánh giá của bạn ở đây..." onkeyup="updateWordCount('writing_3'); autoSave('writing_3')"></textarea>
+                        <div class="word-count" id="count_writing_3">0 W&ouml;rter / từ</div>
+                        <div class="save-indicator" id="save_writing_3" style="display: none;">✓ Automatisch gespeichert / Đã tự động lưu</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lektion 4: Kultur -->
+            <div id="lesson4" class="lesson-panel">
+                <div class="reading-section">
+                    <h2>Text 4: Champions League und Eurovision - Europa feiert zusammen! ⚽🎵</h2>
+                    <p class="subtitle"><em>Gemeinsame Kultur / Văn hóa chung</em></p>
+                    
+                    <div class="reading-text">
+                        <h3>Europas gro&szlig;e Feste</h3>
+                        
+                        <p>Jeden Mittwoch im Fr&uuml;hjahr ist ganz Europa aufgeregt. Warum? Champions League! Fu&szlig;ballteams aus allen EU-L&auml;ndern spielen gegeneinander.</p>
+
+                        <p>Đức aus M&uuml;nchen sitzt mit seinen Freunden vor dem Fernseher. Bayern M&uuml;nchen spielt gegen Barcelona. "Alles oder nichts!", ruft Đức.</p>
+
+                        <p>Zur gleichen Zeit schauen:</p>
+                        <ul>
+                            <li>Marco in Rom (er unterst&uuml;tzt Juventus Turin)</li>
+                            <li>Ahmed in Paris (er liebt Paris Saint-Germain)</li>
+                            <li>Lukas in Amsterdam (Ajax ist sein Team)</li>
+                            <li>Sofia in Madrid (Real Madrid ist die beste Mannschaft!)</li>
+                        </ul>
+
+                        <p>"Wir sind alle Europ&auml;er!", sagt Đức. "Wir lieben Fu&szlig;ball!"</p>
+
+                        <p>Im Mai ist wieder Party-Zeit: Eurovision Song Contest! S&auml;nger aus allen europ&auml;ischen L&auml;ndern singen f&uuml;r ihr Land.</p>
+
+                        <p>Letztes Jahr war der Contest in Italien. Menschen aus ganz Europa kommen zusammen und feiern Musik. Deutschland schickt einen Rockstar, Schweden eine Pops&auml;ngerin, Frankreich einen Rapper.</p>
+
+                        <p>"Das ist wie ein gro&szlig;es Familienfest!", sagt Đứcs Schwester Thảo. "Alle L&auml;nder sind Freunde. Sie konkurrieren, aber sie respektieren sich."</p>
+
+                        <p>Am Ende gibt jedes Land Punkte: 12 Punkte f&uuml;r den besten Song, 10 Punkte f&uuml;r den zweitbesten...</p>
+
+                        <p>"Europa ist nicht nur Politik und Wirtschaft", denkt Đức. "Europa ist Fu&szlig;ball, Musik und Spa&szlig; zusammen!"</p>
+                    </div>
+                </div>
+
+                <div class="vocabulary-section">
+                    <h3>Neue W&ouml;rter / Từ mới</h3>
+                    <div class="vocab-grid">
+                        <div class="vocab-item">
+                            <div class="german-line">
+                                <span class="german">aufgeregt sein</span>
+                                <span class="action-icons">
+                                    <a href="https://www.google.com/search?tbm=isch&q=aufgeregt+sein" target="_blank" title="Bilder anzeigen">🖼️</a>
+                                    <span class="audio-icon" onclick="playGermanTTS('aufgeregt sein')" title="Aussprache anhören">🔊</span>
+                                </span>
+                            </div>
+                            <span class="ipa">[ˈaʊ̯fɡəˌʁeːkt zaɪ̯n]</span>
+                            <span class="vietnamese">hào hứng</span>
+                            <span class="sample-sentence">  Die Fans sind vor dem Spiel aufgeregt.</span>
+                        </div>
+                        <div class="vocab-item">
+                            <div class="german-line">
+                                <span class="german">gegeneinander</span>
+                                <span class="action-icons">
+                                    <a href="https://www.google.com/search?tbm=isch&q=gegeneinander" target="_blank" title="Bilder anzeigen">🖼️</a>
+                                    <span class="audio-icon" onclick="playGermanTTS('gegeneinander')" title="Aussprache anhören">🔊</span>
+                                </span>
+                            </div>
+                            <span class="ipa">[ˌɡeːɡənʔaɪ̯ˈnandɐ]</span>
+                            <span class="vietnamese">đấu với nhau</span>
+                            <span class="sample-sentence">  Deutschland spielt gegen Spanien.</span>
+                        </div>
+                        <div class="vocab-item">
+                            <div class="german-line">
+                                <span class="german">unterst&uuml;tzen</span>
+                                <span class="action-icons">
+                                    <a href="https://www.google.com/search?tbm=isch&q=unterstützen" target="_blank" title="Bilder anzeigen">🖼️</a>
+                                    <span class="audio-icon" onclick="playGermanTTS('unterstützen')" title="Aussprache anhören">🔊</span>
+                                </span>
+                            </div>
+                            <span class="ipa">[ʊntɐˈʃtʏt͡sn̩]</span>
+                            <span class="vietnamese">ủng hộ</span>
+                            <span class="sample-sentence">  Ich unterstütze Bayern München.</span>
+                        </div>
+                        <div class="vocab-item">
+                            <div class="german-line">
+                                <span class="german">schicken</span>
+                                <span class="action-icons">
+                                    <a href="https://www.google.com/search?tbm=isch&q=schicken" target="_blank" title="Bilder anzeigen">🖼️</a>
+                                    <span class="audio-icon" onclick="playGermanTTS('schicken')" title="Aussprache anhören">🔊</span>
+                                </span>
+                            </div>
+                            <span class="ipa">[ˈʃɪkn̩]</span>
+                            <span class="vietnamese">gửi</span>
+                            <span class="sample-sentence">  Deutschland schickt einen Sänger zum Wettbewerb.</span>
+                        </div>
+                        <div class="vocab-item">
+                            <div class="german-line">
+                                <span class="german">konkurrieren</span>
+                                <span class="action-icons">
+                                    <a href="https://www.google.com/search?tbm=isch&q=konkurrieren" target="_blank" title="Bilder anzeigen">🖼️</a>
+                                    <span class="audio-icon" onclick="playGermanTTS('konkurrieren')" title="Aussprache anhören">🔊</span>
+                                </span>
+                            </div>
+                            <span class="ipa">[kɔŋkʊˈʁiːʁən]</span>
+                            <span class="vietnamese">cạnh tranh</span>
+                            <span class="sample-sentence">  Die Teams konkurrieren um den ersten Platz.</span>
+                        </div>
+                        <div class="vocab-item">
+                            <div class="german-line">
+                                <span class="german">die Wirtschaft</span>
+                                <span class="action-icons">
+                                    <a href="https://www.google.com/search?tbm=isch&q=die+Wirtschaft" target="_blank" title="Bilder anzeigen">🖼️</a>
+                                    <span class="audio-icon" onclick="playGermanTTS('die Wirtschaft')" title="Aussprache anhören">🔊</span>
+                                </span>
+                            </div>
+                            <span class="ipa">[ˈvɪʁtʃaft]</span>
+                            <span class="vietnamese">kinh tế</span>
+                            <span class="sample-sentence">  Die europäische Wirtschaft ist stark.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exercise-section">
+                    <h3>Interaktive &Uuml;bungen / Bài tập tương tác</h3>
+                    
+                    <div class="exercise-item">
+                        <div class="question">
+                            <strong>Frage 1:</strong> Wann ist Champions League?<br>
+                            <em>Câu hỏi 1: Champions League diễn ra khi nào?</em>
+                        </div>
+                        <input type="text" class="answer-input" id="q4_1" placeholder="Ihre Antwort hier... / Câu trả lời của bạn ở đây...">
+                        <button class="check-button" onclick="checkAnswer('q4_1', 'mittwoch frühling', 'Richtig! Champions League ist jeden Mittwoch im Frühling.')">
+                            Antwort pr&uuml;fen / Kiểm tra đáp án
+                        </button>
+                        <div id="feedback_q4_1" class="feedback" style="display: none;"></div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <div class="question">
+                            <strong>Frage 2:</strong> Welche Musik-Stile gibt es beim Eurovision?<br>
+                            <em>Câu hỏi 2: Có những phong cách âm nhạc nào tại Eurovision?</em>
+                        </div>
+                        <input type="text" class="answer-input" id="q4_2" placeholder="Ihre Antwort hier... / Câu trả lời của bạn ở đây...">
+                        <button class="check-button" onclick="checkAnswer('q4_2', 'rock pop rap', 'Richtig! Es gibt Rock, Pop, Rap und viele andere Musik-Stile.')">
+                            Antwort pr&uuml;fen / Kiểm tra đáp án
+                        </button>
+                        <div id="feedback_q4_2" class="feedback" style="display: none;"></div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <div class="question">
+                            <strong>Ihre Meinung:</strong> Ist Sport wichtig f&uuml;r Europa?<br>
+                            <em>Ý kiến của bạn: Thể thao có quan trọng đối với châu Âu không?</em>
+                        </div>
+                        <input type="text" class="answer-input" id="q4_3" placeholder="Ihre Antwort hier... / Câu trả lời của bạn ở đây...">
+                        <button class="check-button" onclick="checkAnswer('q4_3', 'ja sport verbindet menschen', 'Gute Meinung! Sport verbindet Menschen und schafft europäische Identität.')">
+                            Antwort pr&uuml;fen / Kiểm tra đáp án
+                        </button>
+                        <div id="feedback_q4_3" class="feedback" style="display: none;"></div>
+                    </div>
+                </div>
+
+                <div class="writing-section">
+                    <h3>Schreibaufgabe / Bài tập viết</h3>
+                    <div class="writing-task">
+                        <h4>Eurovision und Fu&szlig;ball - Vietnams Chance? ⚽🎵</h4>
+                        <p><strong>Aufgabe:</strong> Tr&auml;umen Sie von Vietnams Teilnahme an europ&auml;ischen Events!<br>
+                        <em>Nhiệm vụ: Mơ về việc Việt Nam tham gia các sự kiện châu Âu!</em></p>
+                        
+                        <p><strong>Schreiben Sie einen kreativen Text (100-120 W&ouml;rter):</strong><br>
+                        <em>Viết một văn bản sáng tạo (100-120 từ):</em></p>
+                        
+                        <p><strong>Teil 1 - Eurovision:</strong></p>
+                        <ul>
+                            <li>S&auml;nger/in: Wer soll Vietnam vertreten? / Ca sĩ: Ai đại diện cho Việt Nam?</li>
+                            <li>Lied: Welcher Musikstil? / Bài hát: Phong cách âm nhạc nào?</li>
+                        </ul>
+                        
+                        <p><strong>Teil 2 - Champions League:</strong></p>
+                        <ul>
+                            <li>Team: Welches vietnamesisches Team? / Đội: Đội Việt Nam nào?</li>
+                            <li>Erfolg: Wie weit kommt Vietnam? / Thành công: Việt Nam đi được đến đâu?</li>
+                        </ul>
+                        
+                        <textarea class="writing-area" id="writing_4" placeholder="Schreiben Sie hier Ihre kreativen Ideen... / Viết ý tưởng sáng tạo của bạn ở đây..." onkeyup="updateWordCount('writing_4'); autoSave('writing_4')"></textarea>
+                        <div class="word-count" id="count_writing_4">0 W&ouml;rter / từ</div>
+                        <div class="save-indicator" id="save_writing_4" style="display: none;">✓ Automatisch gespeichert / Đã tự động lưu</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab Navigation
+        function showLesson(lessonNumber) {
+            // Hide all lessons
+            const lessons = document.querySelectorAll('.lesson-panel');
+            lessons.forEach(lesson => lesson.classList.remove('active'));
+            
+            // Hide all tab buttons
+            const tabs = document.querySelectorAll('.tab-button');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show selected lesson
+            document.getElementById('lesson' + lessonNumber).classList.add('active');
+            
+            // Activate selected tab
+            event.target.classList.add('active');
+            
+            // Save current lesson
+            localStorage.setItem('currentLesson', lessonNumber);
+        }
+
+        // Load saved lesson on page load
+        window.addEventListener('load', function() {
+            const savedLesson = localStorage.getItem('currentLesson');
+            if (savedLesson) {
+                showLesson(parseInt(savedLesson));
+            }
+            
+            // Load saved writing content
+            for (let i = 1; i <= 4; i++) {
+                const savedContent = localStorage.getItem('writing_' + i);
+                if (savedContent) {
+                    const textarea = document.getElementById('writing_' + i);
+                    if (textarea) {
+                        textarea.value = savedContent;
+                        updateWordCount('writing_' + i);
+                    }
+                }
+            }
+        });
+
+        // Answer checking function
+        function checkAnswer(inputId, correctAnswer, feedbackText) {
+            const input = document.getElementById(inputId);
+            const feedback = document.getElementById('feedback_' + inputId);
+            const userAnswer = input.value.toLowerCase().trim();
+            const correct = correctAnswer.toLowerCase();
+            
+            // Check if answer contains key words
+            const correctWords = correct.split(' ');
+            const isCorrect = correctWords.some(word => userAnswer.includes(word));
+            
+            feedback.style.display = 'block';
+            
+            if (isCorrect || userAnswer === correct) {
+                feedback.className = 'feedback correct';
+                feedback.innerHTML = '✓ ' + feedbackText;
+            } else {
+                feedback.className = 'feedback incorrect';
+                feedback.innerHTML = '✗ Versuchen Sie es noch einmal! / Hãy thử lại!<br><em>Tipp: ' + feedbackText + '</em>';
+            }
+            
+            // Save answer
+            localStorage.setItem('answer_' + inputId, userAnswer);
+        }
+
+        // Word count function
+        function updateWordCount(textareaId) {
+            const textarea = document.getElementById(textareaId);
+            const words = textarea.value.trim().split(/\s+/).filter(word => word.length > 0);
+            const wordCount = words.length;
+            
+            document.getElementById('count_' + textareaId).textContent = wordCount + ' W&ouml;rter / từ';
+            
+            // Color coding for word count
+            const countElement = document.getElementById('count_' + textareaId);
+            if (wordCount >= 100 && wordCount <= 120) {
+                countElement.style.color = '#28a745'; // Green - perfect range
+            } else if (wordCount >= 80 && wordCount < 100) {
+                countElement.style.color = '#fd7e14'; // Orange - close
+            } else if (wordCount > 120) {
+                countElement.style.color = '#dc3545'; // Red - too many
+            } else {
+                countElement.style.color = '#666'; // Gray - default
+            }
+        }
+
+        // Auto-save function
+        function autoSave(textareaId) {
+            const textarea = document.getElementById(textareaId);
+            const content = textarea.value;
+            
+            // Save to localStorage
+            localStorage.setItem(textareaId, content);
+            
+            // Show save indicator
+            const saveIndicator = document.getElementById('save_' + textareaId);
+            saveIndicator.style.display = 'block';
+            
+            // Hide after 2 seconds
+            setTimeout(() => {
+                saveIndicator.style.display = 'none';
+            }, 2000);
+        }
+
+        // Function to play German TTS
+        function playGermanTTS(text) {
+            const audio = new Audio(`https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&q=${encodeURIComponent(text)}&tl=de`);
+            audio.play().catch(e => console.error("Audio playback failed:", e));
+        }
+
+        // Load saved answers on page load
+        window.addEventListener('load', function() {
+            // Load saved answers for exercises
+            for (let lesson = 1; lesson <= 4; lesson++) {
+                for (let question = 1; question <= 3; question++) {
+                    const inputId = 'q' + lesson + '_' + question;
+                    const savedAnswer = localStorage.getItem('answer_' + inputId);
+                    if (savedAnswer) {
+                        const input = document.getElementById(inputId);
+                        if (input) {
+                            input.value = savedAnswer;
+                        }
+                    }
+                }
+            }
+        });
+
+        // Mobile optimization
+        if ('ontouchstart' in window) {
+            document.body.classList.add('mobile-device');
+        }
+
+        // Print function
+        function printLesson() {
+            window.print();
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey || e.metaKey) {
+                switch(e.key) {
+                    case '1':
+                        e.preventDefault();
+                        showLesson(1);
+                        break;
+                    case '2':
+                        e.preventDefault();
+                        showLesson(2);
+                        break;
+                    case '3':
+                        e.preventDefault();
+                        showLesson(3);
+                        break;
+                    case '4':
+                        e.preventDefault();
+                        showLesson(4);
+                        break;
+                    case 'p':
+                        e.preventDefault();
+                        printLesson();
+                        break;
+                }
+            }
+        });
+
+        // Responsive tab handling for mobile
+        function handleTabScroll() {
+            const tabContainer = document.querySelector('.lesson-tabs');
+            const activeTab = document.querySelector('.tab-button.active');
+            
+            if (activeTab && window.innerWidth <= 768) {
+                activeTab.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'nearest',
+                    inline: 'center'
+                });
+            }
+        }
+
+        // Call on tab change
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.addEventListener('click', handleTabScroll);
+        });
+
+        // Accessibility improvements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add ARIA labels
+            const tabs = document.querySelectorAll('.tab-button');
+            tabs.forEach((tab, index) => {
+                tab.setAttribute('role', 'tab');
+                tab.setAttribute('aria-selected', index === 0 ? 'true' : 'false');
+                tab.setAttribute('tabindex', index === 0 ? '0' : '-1');
+            });
+
+            // Add ARIA labels to textareas
+            const textareas = document.querySelectorAll('.writing-area');
+            textareas.forEach(textarea => {
+                textarea.setAttribute('aria-label', 'Schreibbereich für Ihre Antwort');
+            });
+
+            // Add ARIA labels to input fields
+            const inputs = document.querySelectorAll('.answer-input');
+            inputs.forEach(input => {
+                input.setAttribute('aria-label', 'Antwortfeld für Übung');
+            });
+        });
+
+        // Enhanced mobile experience
+        if (window.innerWidth <= 768) {
+            // Add touch-friendly interactions
+            document.querySelectorAll('.vocab-item').forEach(item => {
+                item.addEventListener('touchstart', function() {
+                    this.style.transform = 'scale(1.02)';
+                });
+                
+                item.addEventListener('touchend', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+        }
+
+        // Progress tracking
+        function updateProgress() {
+            const totalExercises = document.querySelectorAll('.exercise-item').length;
+            const totalWritingTasks = document.querySelectorAll('.writing-area').length;
+            
+            let completedExercises = 0;
+            let completedWritingTasks = 0;
+            
+            // Count completed exercises
+            document.querySelectorAll('.answer-input').forEach(input => {
+                if (input.value.trim().length > 0) {
+                    completedExercises++;
+                }
+            });
+            
+            // Count completed writing tasks
+            document.querySelectorAll('.writing-area').forEach(textarea => {
+                const words = textarea.value.trim().split(/\s+/).filter(word => word.length > 0);
+                if (words.length >= 50) { // Minimum word count
+                    completedWritingTasks++;
+                }
+            });
+            
+            const totalProgress = ((completedExercises + completedWritingTasks) / (totalExercises + totalWritingTasks)) * 100;
+            
+            // Save progress
+            localStorage.setItem('lessonProgress', totalProgress.toFixed(0));
+        }
+
+        // Update progress on input
+        document.querySelectorAll('.answer-input, .writing-area').forEach(element => {
+            element.addEventListener('input', updateProgress);
+        });
+
+        // Initialize progress on load
+        window.addEventListener('load', updateProgress);
+
+        // Error handling for localStorage
+        function safeLocalStorage(action, key, value = null) {
+            try {
+                if (action === 'set') {
+                    localStorage.setItem(key, value);
+                } else if (action === 'get') {
+                    return localStorage.getItem(key);
+                } else if (action === 'remove') {
+                    localStorage.removeItem(key);
+                }
+            } catch (e) {
+                console.warn('localStorage not available:', e);
+                return null;
+            }
+        }
+
+        // Offline functionality check
+        function checkOnlineStatus() {
+            if (!navigator.onLine) {
+                // Show offline indicator
+                const offlineIndicator = document.createElement('div');
+                offlineIndicator.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    background: #dc3545;
+                    color: white;
+                    text-align: center;
+                    padding: 0.5rem;
+                    z-index: 1000;
+                    font-weight: bold;
+                `;
+                offlineIndicator.textContent = 'Offline-Modus / Chế độ ngoại tuyến';
+                document.body.insertBefore(offlineIndicator, document.body.firstChild);
+            }
+        }
+
+        window.addEventListener('load', checkOnlineStatus);
+        window.addEventListener('online', () => location.reload());
+        window.addEventListener('offline', checkOnlineStatus);
+
+        // Vietnamese input method support
+        document.querySelectorAll('input, textarea').forEach(element => {
+            element.addEventListener('input', function(e) {
+                // Handle Vietnamese input methods
+                const vietnameseChars = /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]/gi;
+                
+                // Ensure proper display of Vietnamese characters
+                if (vietnameseChars.test(this.value)) {
+                    this.style.fontFamily = 'system-ui, -apple-system, BlinkMacSystemFont, sans-serif';
+                }
+            });
+        });
+
+        // Enhanced German character support
+        document.querySelectorAll('input, textarea').forEach(element => {
+            element.addEventListener('keydown', function(e) {
+                // Quick German character input with Alt key
+                if (e.altKey) {
+                    switch(e.key.toLowerCase()) {
+                        case 'a':
+                            e.preventDefault();
+                            insertCharacter(this, 'ä');
+                            break;
+                        case 'o':
+                            e.preventDefault();
+                            insertCharacter(this, 'ö');
+                            break;
+                        case 'u':
+                            e.preventDefault();
+                            insertCharacter(this, 'ü');
+                            break;
+                        case 's':
+                            e.preventDefault();
+                            insertCharacter(this, 'ß');
+                            break;
+                    }
+                }
+            });
+        });
+
+        function insertCharacter(element, char) {
+            const start = element.selectionStart;
+            const end = element.selectionEnd;
+            const value = element.value;
+            
+            element.value = value.substring(0, start) + char + value.substring(end);
+            element.selectionStart = element.selectionEnd = start + 1;
+            
+            // Trigger input event for auto-save
+            element.dispatchEvent(new Event('input'));
+        }
+
+        // Performance optimization for large content
+        function lazyLoadContent() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('loaded');
+                    }
+                });
+            });
+
+            document.querySelectorAll('.lesson-panel').forEach(panel => {
+                observer.observe(panel);
+            });
+        }
+
+        // Initialize lazy loading
+        if ('IntersectionObserver' in window) {
+            window.addEventListener('load', lazyLoadContent);
+        }
+
+        // Final initialization
+        console.log('EU Reading Passages - Interaktive Lektionen geladen! / Đã tải xong bài học tương tác EU!');
+        console.log('Funktionen: Tab-Navigation, Auto-Speichern, Offline-Funktion / Chức năng: Điều hướng tab, Tự động lưu, Chức năng ngoại tuyến');
+    </script>
+</body>
+</html>
+                        
