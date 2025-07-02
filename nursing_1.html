@@ -1,0 +1,1835 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Interaktive Deutsch-Lektion für vietnamesische Studierende - Krankenhausalltag">
+    <title>Lektion 1: Ankunft im Krankenhausalltag - Deutsch Campus</title>
+    <style>
+        /* Deutsch Campus Styling */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        .lesson-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            background: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="10" width="20" height="20" rx="5" fill="%23e3f2fd"/><rect x="60" y="60" width="25" height="25" rx="6" fill="%23e0f7fa"/><circle cx="80" cy="20" r="10" fill="%23ffe082"/><rect x="40" y="40" width="10" height="30" rx="3" fill="%23c8e6c9"/></svg>') repeat;
+        }
+
+        /* Navigation Tabs */
+        .lesson-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .tab-button {
+            flex: 1;
+            padding: 1rem 2rem;
+            border: none;
+            background: white;
+            color: #666;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        .tab-button.active {
+            color: #007bff;
+            border-bottom-color: #007bff;
+            background: #f8f9ff;
+        }
+
+        .tab-button:hover {
+            background: #f0f0f0;
+        }
+
+        /* Lesson Content */
+        .lesson-content {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .lesson-panel {
+            display: none;
+            padding: 2rem;
+        }
+
+        .lesson-panel.active {
+            display: block;
+        }
+
+        .lesson-title {
+            text-align: center;
+            color: #333;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .lesson-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        /* Section Styling - Deutsch Campus Color Coding */
+        .vocabulary-section {
+            background: #f3f8fd;
+            color: #222;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,123,255,0.3);
+        }
+
+        .vocabulary-section .section-content {
+            background: #e6f0fa;
+            color: #222;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+        }
+
+        .vocabulary-section .interactive-exercise {
+            background: #f7fbff;
+            color: #222;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+        }
+
+        .vocabulary-section .vocabulary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+            background: #fafdff;
+        }
+
+        .vocabulary-section .vocab-item {
+            background: #ffffff;
+            color: #222;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid rgba(255,255,255,0.5);
+            transition: all 0.3s ease;
+        }
+
+        .vocabulary-section .vocab-item:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-2px);
+        }
+
+        .vocabulary-section .vocab-word {
+            font-size: 1.3rem;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .vocabulary-section .vocab-pronunciation {
+            font-size: 0.9rem;
+            color: #333;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .vocabulary-section .vocab-translation {
+            font-size: 1.1rem;
+            color: #222;
+            margin-bottom: 1rem;
+        }
+
+        .vocabulary-section .vocab-image {
+            width: 100%;
+            height: 120px;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            object-fit: cover;
+        }
+
+        .vocabulary-section .sound-button {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: #222;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .vocabulary-section .sound-button:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .grammar-section {
+            background: #f3fbf5;
+            color: #222;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(40,167,69,0.3);
+        }
+
+        .grammar-section .section-content {
+            background: #e6f9ea;
+            color: #222;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+        }
+
+        .grammar-section .interactive-exercise {
+            background: #f7fdf9;
+            color: #222;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+        }
+
+        .grammar-section .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .grammar-section .section-content ul {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .grammar-section .section-content ul li {
+            margin-bottom: 1rem;
+        }
+
+        .grammar-section .section-content ul strong {
+            font-weight: 600;
+        }
+
+        .reading-section {
+            background: #f7f4fb;
+            color: #222;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(111,66,193,0.3);
+        }
+
+        .reading-section .section-content {
+            background: #ede7f6;
+            color: #222;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+        }
+
+        .reading-section .interactive-exercise {
+            background: #f9f7fd;
+            color: #222;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+        }
+
+        .reading-section .reading-text {
+            background: #fff;
+            color: #222;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .reading-section .reading-text h4 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            color: #222;
+        }
+
+        .reading-section .reading-text p {
+            margin-bottom: 1rem;
+        }
+
+        .listening-section {
+            background: #fdf3f8;
+            color: #222;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(232,62,140,0.3);
+        }
+
+        .listening-section .section-content {
+            background: #fae6f0;
+            color: #222;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .listening-section .interactive-exercise {
+            background: #fff7fb;
+            color: #222;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .listening-section .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .listening-section .section-content ul {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .listening-section .section-content ul li {
+            margin-bottom: 1rem;
+        }
+
+        .production-section {
+            background: #fff7f3;
+            color: #222;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(253,126,20,0.3);
+        }
+
+        .production-section .section-content {
+            background: #fff0e6;
+            color: #222;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+        }
+
+        .production-section .writing-area {
+            background: #fff9f7;
+            color: #222;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+        }
+
+        .production-section .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .production-section .writing-textarea {
+            width: 100%;
+            min-height: 150px;
+            padding: 1rem;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 8px;
+            font-size: 1rem;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            resize: vertical;
+            font-family: inherit;
+        }
+
+        .production-section .writing-textarea::placeholder {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .production-section .writing-textarea:focus {
+            outline: none;
+            border-color: rgba(255,255,255,0.8);
+            background: rgba(255,255,255,0.2);
+        }
+
+        .production-section .word-count {
+            text-align: right;
+            margin-top: 0.5rem;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+        }
+
+        .summary-section {
+            background: #f6f7f8;
+            color: #222;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(108,117,125,0.3);
+        }
+
+        .summary-section .section-content {
+            background: #eceff1;
+            color: #222;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+        }
+
+        .summary-section .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+            background: #f9fafb;
+            color: #222;
+        }
+
+        .summary-section .fact-item {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .summary-section .fact-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        .summary-section .fact-emoji {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .section-title .section-emoji {
+            font-size: 2rem;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+        }
+
+        .section-content {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+        }
+
+        /* Vocabulary Grid */
+        .vocabulary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .vocab-item {
+            background: rgba(255,255,255,0.15);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid rgba(255,255,255,0.5);
+            transition: all 0.3s ease;
+        }
+
+        .vocab-item:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-2px);
+        }
+
+        .vocab-word {
+            font-size: 1.3rem;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .vocab-pronunciation {
+            font-size: 0.9rem;
+            color: #333;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .vocab-translation {
+            font-size: 1.1rem;
+            color: #222;
+            margin-bottom: 1rem;
+        }
+
+        .vocab-image {
+            width: 100%;
+            height: 120px;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            object-fit: cover;
+        }
+
+        .sound-button {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: #222;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .sound-button:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        /* Interactive Elements */
+        .interactive-exercise {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+        }
+
+        .exercise-question {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 8px;
+            font-size: 1rem;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .input-field::placeholder {
+            color: #666;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: rgba(255,255,255,0.8);
+            background: rgba(255,255,255,0.2);
+        }
+
+        .check-button {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.5);
+            color: #222;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .check-button:hover {
+            background: rgba(255,255,255,0.3);
+            border-color: rgba(255,255,255,0.8);
+        }
+
+        .feedback {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            font-weight: 500;
+            color: #222;
+        }
+
+        .feedback.correct {
+            background: rgba(40,167,69,0.3);
+            border: 1px solid rgba(40,167,69,0.5);
+            color: #222;
+        }
+
+        .feedback.incorrect {
+            background: rgba(220,53,69,0.3);
+            border: 1px solid rgba(220,53,69,0.5);
+            color: #222;
+        }
+
+        .feedback.info {
+            background: rgba(23,162,184,0.3);
+            border: 1px solid rgba(23,162,184,0.5);
+            color: #222;
+        }
+
+        /* Reading Text */
+        .reading-text {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .reading-text h4 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            color: #222;
+        }
+
+        .reading-text p {
+            margin-bottom: 1rem;
+        }
+
+        /* Writing Area */
+        .writing-area {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+        }
+
+        .writing-textarea {
+            width: 100%;
+            min-height: 150px;
+            padding: 1rem;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 8px;
+            font-size: 1rem;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            resize: vertical;
+            font-family: inherit;
+        }
+
+        .writing-textarea::placeholder {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .writing-textarea:focus {
+            outline: none;
+            border-color: rgba(255,255,255,0.8);
+            background: rgba(255,255,255,0.2);
+        }
+
+        .word-count {
+            text-align: right;
+            margin-top: 0.5rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Facts Section */
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .fact-item {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .fact-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        .fact-emoji {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .lesson-container {
+                padding: 0.5rem;
+            }
+
+            .lesson-tabs {
+                flex-direction: column;
+                border-radius: 10px;
+            }
+
+            .tab-button {
+                padding: 0.8rem 1rem;
+            }
+
+            .lesson-panel {
+                padding: 1rem;
+            }
+
+            .lesson-title {
+                font-size: 2rem;
+            }
+
+            .vocabulary-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+
+            .lesson-tabs {
+                display: none;
+            }
+
+            .lesson-panel {
+                display: block !important;
+                page-break-before: always;
+            }
+
+            .lesson-panel:first-child {
+                page-break-before: avoid;
+            }
+
+            .vocabulary-section,
+            .grammar-section,
+            .production-section,
+            .reading-section,
+            .listening-section,
+            .summary-section {
+                background: white !important;
+                color: black !important;
+                border: 2px solid black;
+                box-shadow: none;
+            }
+
+            .vocabulary-section {
+                border-left: 8px solid #007bff;
+            }
+
+            .grammar-section {
+                border-left: 8px solid #28a745;
+            }
+
+            .production-section {
+                border-left: 8px solid #fd7e14;
+            }
+
+            .section-content,
+            .interactive-exercise,
+            .reading-text,
+            .writing-area {
+                background: white !important;
+                color: black !important;
+                border: 1px solid #ccc;
+            }
+
+            .input-field,
+            .writing-textarea {
+                background: white !important;
+                color: black !important;
+                border: 1px solid black;
+            }
+        }
+
+        /* Add to the CSS in <style> */
+        .tab-button.active.tab-vocabulary {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            color: white;
+            border-bottom: 3px solid #0056b3;
+        }
+        .tab-button.active.tab-grammar {
+            background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%);
+            color: white;
+            border-bottom: 3px solid #1e7e34;
+        }
+        .tab-button.active.tab-reading {
+            background: linear-gradient(135deg, #6f42c1 0%, #553696 100%);
+            color: white;
+            border-bottom: 3px solid #553696;
+        }
+        .tab-button.active.tab-listening {
+            background: linear-gradient(135deg, #e83e8c 0%, #c92a6c 100%);
+            color: white;
+            border-bottom: 3px solid #c92a6c;
+        }
+        .tab-button.active.tab-writing {
+            background: linear-gradient(135deg, #fd7e14 0%, #e55d00 100%);
+            color: white;
+            border-bottom: 3px solid #e55d00;
+        }
+        .tab-button.active.tab-summary {
+            background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+            color: white;
+            border-bottom: 3px solid #495057;
+        }
+
+        .main-title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 2rem 0 1.5rem 0;
+            color: #0056b3;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+        .main-title .hospital-emoji {
+            font-size: 2.5rem;
+            vertical-align: middle;
+        }
+        .section-title .nurse-emoji {
+            font-size: 1.5rem;
+            margin-left: 0.5rem;
+        }
+        .section-title .stethoscope-emoji {
+            font-size: 1.5rem;
+            margin-left: 0.5rem;
+        }
+
+        .extra-emoji {
+            font-size: 1.3rem;
+            margin-left: 0.3rem;
+            vertical-align: middle;
+        }
+
+        .input-field, .writing-textarea {
+            color: #222;
+        }
+
+        .production-section .writing-textarea, .writing-textarea {
+            color: #222;
+        }
+        .production-section .writing-textarea::placeholder, .writing-textarea::placeholder {
+            color: #666;
+        }
+
+        /* Auto-save popup notification */
+        #autosave-popup {
+            display: none;
+            position: fixed;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #007bff;
+            color: #fff;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+            font-size: 1.1rem;
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <div id="autosave-popup">Fortschritt automatisch gespeichert!<br><em>Đã tự động lưu tiến trình!</em></div>
+    <h1 class="main-title"><span>Ankunft im Krankenhausalltag</span><span class="hospital-emoji" title="Krankenhaus">🏥</span></h1>
+    <div class="lesson-container">
+        <nav class="lesson-tabs">
+            <button class="tab-button tab-vocabulary active" onclick="showSection('vocabulary')">
+                <span>Wortschatz</span>
+                <span class="nurse-emoji" title="Pflege">🧑‍⚕️</span>
+                <span class="section-emoji" title="Vokabeln">📚</span><br>
+                <small><em>Từ vựng</em></small>
+            </button>
+            <button class="tab-button tab-grammar" onclick="showSection('grammar')">
+                <span>Grammatik</span>
+                <span class="section-emoji" title="Grammatik">📝</span><br>
+                <small><em>Ngữ pháp</em></small>
+            </button>
+            <button class="tab-button tab-reading" onclick="showSection('reading')">
+                <span>Lesen</span>
+                <span class="section-emoji" title="Lesen">📖</span><br>
+                <small><em>Phần đọc</em></small>
+            </button>
+            <button class="tab-button tab-listening" onclick="showSection('listening')">
+                <span>Hör- und Sprechteil</span>
+                <span class="section-emoji" title="Hören & Sprechen">🗣️</span><br>
+                <small><em>Phần nghe và nói</em></small>
+            </button>
+            <button class="tab-button tab-writing" onclick="showSection('writing')">
+                <span>Schreibübung</span>
+                <span class="section-emoji" title="Schreiben">✍️</span><br>
+                <small><em>Bài tập viết</em></small>
+            </button>
+            <button class="tab-button tab-summary" onclick="showSection('summary')">
+                <span>Zusammenfassung</span>
+                <span class="stethoscope-emoji" title="Stethoskop">🩺</span>
+                <span class="section-emoji" title="Idee">💡</span><br>
+                <small><em>Tóm tắt</em></small>
+            </button>
+        </nav>
+
+        <div class="lesson-content">
+            <div class="lesson-panel active" style="display: block;">
+                <h1 class="lesson-title">Lektion 1: Ankunft im Krankenhausalltag</h1>
+                <p class="lesson-subtitle"><em>Bài học 1: Đến với cuộc sống hàng ngày tại bệnh viện</em> <span class="extra-emoji" title="Highlight">🌟</span></p>
+                
+                <div class="section-content">
+                    <p><strong>Dauer:</strong> 90 Minuten - <em>Thời gian: 90 phút</em></p>
+                    <p><strong>Ziel:</strong> Erste Orientierung im Krankenhaus verstehen - <em>Mục tiêu: Hiểu sự định hướng đầu tiên trong bệnh viện</em></p>
+                </div>
+            </div>
+
+            <!-- Vocabulary Section -->
+            <div id="vocabulary-section" class="lesson-panel">
+                <div class="vocabulary-section">
+                    <h2 class="section-title">
+                        <span>Wortschatz</span>
+                        <span class="nurse-emoji" title="Pflege">🧑‍⚕️</span>
+                        <span class="section-emoji" title="Vokabeln">📚</span><br>
+                        <small><em>Từ vựng</em></small>
+                    </h2>
+                    
+                    <div class="section-content">
+                        <p><strong>Zeit:</strong> 15 Minuten - <em>Thời gian: 15 phút</em></p>
+                    </div>
+
+                    <h3 style="margin: 2rem 0 1rem 0;">Grundwortschatz - <em>Từ vựng cơ bản</em></h3>
+                    <div class="vocabulary-grid">
+                        <div class="vocab-item">
+                            <span class="vocab-word">das Fieberthermometer</span>
+                            <span class="vocab-pronunciation">/ˈfiːbɐtɛrmoˌmeːtɐ/</span>
+                            <span class="vocab-translation">nhiệt kế</span>
+                            <button class="sound-button" onclick="playSound('fieberthermometer')">🔊 Aussprache</button>
+                            <div><a href="https://www.google.com/search?tbm=isch&q=Fieberthermometer" target="_blank">Bilder zu Fieberthermometer</a></div>
+                            <div class="vocab-example">Das Fieberthermometer zeigt 38 Grad.</div>
+                        </div>
+                        
+                        <div class="vocab-item">
+                            <span class="vocab-word">einfühlsam</span>
+                            <span class="vocab-pronunciation">/ˈaɪnˌfyːlzaːm/</span>
+                            <span class="vocab-translation">thông cảm</span>
+                            <button class="sound-button" onclick="playSound('einfuehlsam')">🔊 Aussprache</button>
+                            <div><a href="https://www.google.com/search?tbm=isch&q=einfühlsam" target="_blank">Bilder zu einfühlsam</a></div>
+                            <div class="vocab-example">Die Krankenschwester ist sehr einfühlsam.</div>
+                        </div>
+                        
+                        <div class="vocab-item">
+                            <span class="vocab-word">die Temperaturmessung</span>
+                            <span class="vocab-pronunciation">/ˈtɛmpəratuːɐ̯ˌmɛsʊŋ/</span>
+                            <span class="vocab-translation">việc đo nhiệt độ</span>
+                            <button class="sound-button" onclick="playSound('temperaturmessung')">🔊 Aussprache</button>
+                            <div><a href="https://www.google.com/search?tbm=isch&q=Temperaturmessung" target="_blank">Bilder zu Temperaturmessung</a></div>
+                            <div class="vocab-example">Die Temperaturmessung ist wichtig im Krankenhaus.</div>
+                        </div>
+                        
+                        <div class="vocab-item">
+                            <span class="vocab-word">tapfer</span>
+                            <span class="vocab-pronunciation">/ˈtapfɐ/</span>
+                            <span class="vocab-translation">dũng cảm</span>
+                            <button class="sound-button" onclick="playSound('tapfer')">🔊 Aussprache</button>
+                            <div><a href="https://www.google.com/search?tbm=isch&q=tapfer" target="_blank">Bilder zu tapfer</a></div>
+                            <div class="vocab-example">Das Kind war beim Arzt sehr tapfer.</div>
+                        </div>
+                        
+                        <div class="vocab-item">
+                            <span class="vocab-word">neugierig</span>
+                            <span class="vocab-pronunciation">/ˈnɔɪɡiːrɪç/</span>
+                            <span class="vocab-translation">tò mò</span>
+                            <button class="sound-button" onclick="playSound('neugierig')">🔊 Aussprache</button>
+                            <div><a href="https://www.google.com/search?tbm=isch&q=neugierig" target="_blank">Bilder zu neugierig</a></div>
+                            <div class="vocab-example">Das Kind ist sehr neugierig.</div>
+                        </div>
+                        
+                        <div class="vocab-item">
+                            <span class="vocab-word">der Zauberstab</span>
+                            <span class="vocab-pronunciation">/ˈtsaʊbɐˌʃtaːp/</span>
+                            <span class="vocab-translation">cây đũa phép</span>
+                            <button class="sound-button" onclick="playSound('zauberstab')">🔊 Aussprache</button>
+                            <div><a href="https://www.google.com/search?tbm=isch&q=Zauberstab" target="_blank">Bilder zu Zauberstab</a></div>
+                            <div class="vocab-example">Harry Potter hat einen Zauberstab.</div>
+                        </div>
+                    </div>
+
+                    <h3 style="margin: 2rem 0 1rem 0;">Fachwortschatz - <em>Từ vựng chuyên ngành</em></h3>
+                    <div class="vocabulary-grid">
+                        <div class="vocab-item">
+                            <span class="vocab-word">die Stationsleitung</span>
+                            <span class="vocab-pronunciation">/ˈʃtaʦi̯oːnsˌlaɪtʊŋ/</span>
+                            <span class="vocab-translation">trưởng trạm/khoa</span>
+                            <button class="sound-button" onclick="playSound('stationsleitung')">🔊 Aussprache</button>
+                            <div><a href="https://www.google.com/search?tbm=isch&q=Stationsleitung" target="_blank">Bilder zu Stationsleitung</a></div>
+                            <div class="vocab-example">Die Stationsleitung organisiert das Team.</div>
+                        </div>
+                        
+                        <div class="vocab-item">
+                            <span class="vocab-word">der Pflegebericht</span>
+                            <span class="vocab-pronunciation">/ˈpfleːɡəbəˌrɪçt/</span>
+                            <span class="vocab-translation">báo cáo chăm sóc</span>
+                            <button class="sound-button" onclick="playSound('pflegebericht')">🔊 Aussprache</button>
+                            <div><a href="https://www.google.com/search?tbm=isch&q=Pflegebericht" target="_blank">Bilder zu Pflegebericht</a></div>
+                            <div class="vocab-example">Der Pflegebericht wird jeden Tag geschrieben.</div>
+                        </div>
+                        
+                        <div class="vocab-item">
+                            <span class="vocab-word">die Pflegeplanung</span>
+                            <span class="vocab-pronunciation">/ˈpfleːɡəˌplaːnʊŋ/</span>
+                            <span class="vocab-translation">kế hoạch chăm sóc</span>
+                            <button class="sound-button" onclick="playSound('pflegeplanung')">🔊 Aussprache</button>
+                            <div><a href="https://www.google.com/search?tbm=isch&q=Pflegeplanung" target="_blank">Bilder zu Pflegeplanung</a></div>
+                            <div class="vocab-example">Die Pflegeplanung hilft bei der Organisation der Pflege.</div>
+                        </div>
+                        
+                        <div class="vocab-item">
+                            <span class="vocab-word">das Druckgeschw&uuml;r</span>
+                            <span class="vocab-pronunciation">/ˈdrʊkɡəˌʃvyːɐ̯/</span>
+                            <span class="vocab-translation">vết loét do tì đè</span>
+                            <button class="sound-button" onclick="playSound('druckgeschwuer')">🔊 Aussprache</button>
+                            <div><a href="https://www.google.com/search?tbm=isch&q=Druckgeschw%C3%BCr" target="_blank">Bilder zu Druckgeschwür</a></div>
+                            <div class="vocab-example">Der Patient hat ein Druckgeschwür am Rücken.</div>
+                        </div>
+                        
+                        <div class="vocab-item">
+                            <span class="vocab-word">inkontinent</span>
+                            <span class="vocab-pronunciation">/ɪnkɔntiˈnɛnt/</span>
+                            <span class="vocab-translation">không tự chủ</span>
+                            <button class="sound-button" onclick="playSound('inkontinent')">🔊 Aussprache</button>
+                            <div><a href="https://www.google.com/search?tbm=isch&q=inkontinent" target="_blank">Bilder zu inkontinent</a></div>
+                            <div class="vocab-example">Die ältere Dame ist inkontinent.</div>
+                        </div>
+                        
+                        <div class="vocab-item">
+                            <span class="vocab-word">die Lagerung</span>
+                            <span class="vocab-pronunciation">/ˈlaːɡərʊŋ/</span>
+                            <span class="vocab-translation">việc thay đổi tư thế</span>
+                            <button class="sound-button" onclick="playSound('lagerung')">🔊 Aussprache</button>
+                            <div><a href="https://www.google.com/search?tbm=isch&q=Lagerung+Pflege" target="_blank">Bilder zu Lagerung</a></div>
+                            <div class="vocab-example">Die Lagerung des Patienten muss regelmäßig gewechselt werden.</div>
+                        </div>
+                    </div>
+
+                    <div class="interactive-exercise">
+                        <h3>Aktivit&auml;t <span class="extra-emoji" title="Game">🎲</span> - <em>Hoạt động</em></h3>
+                        <p class="exercise-question">
+                            <strong>Erg&auml;nzen Sie die L&uuml;cken mit den passenden W&ouml;rtern:</strong><br>
+                            <em>Điền vào chỗ trống bằng từ thích hợp:</em>
+                        </p>
+                        
+                        <div style="margin: 1rem 0;">
+                            <p>1. Das __________ misst die K&ouml;rpertemperatur. (nhiệt kế)</p>
+                            <input type="text" class="input-field" id="vocab1" placeholder="Ihre Antwort hier...">
+                            <button class="check-button" onclick="checkVocabAnswer(1, 'Fieberthermometer')">Pr&uuml;fen</button>
+                            <div id="feedback1" class="feedback" style="display: none;"></div>
+                        </div>
+                        
+                        <div style="margin: 1rem 0;">
+                            <p>2. Eine __________ Pflegekraft versteht die Gef&uuml;hle der Patienten. (thông cảm)</p>
+                            <input type="text" class="input-field" id="vocab2" placeholder="Ihre Antwort hier...">
+                            <button class="check-button" onclick="checkVocabAnswer(2, 'einfühlsame')">Pr&uuml;fen</button>
+                            <div id="feedback2" class="feedback" style="display: none;"></div>
+                        </div>
+                        
+                        <div style="margin: 1rem 0;">
+                            <p>3. Der __________ Junge hat keine Angst vor der Untersuchung. (dũng cảm)</p>
+                            <input type="text" class="input-field" id="vocab3" placeholder="Ihre Antwort hier...">
+                            <button class="check-button" onclick="checkVocabAnswer(3, 'tapfere')">Pr&uuml;fen</button>
+                            <div id="feedback3" class="feedback" style="display: none;"></div>
+                        </div>
+                        
+                        <div style="margin: 1rem 0;">
+                            <p>4. Die __________ zeigt die wichtigsten Pflegema&szlig;nahmen. (kế hoạch chăm sóc)</p>
+                            <input type="text" class="input-field" id="vocab4" placeholder="Ihre Antwort hier...">
+                            <button class="check-button" onclick="checkVocabAnswer(4, 'Pflegeplanung')">Pr&uuml;fen</button>
+                            <div id="feedback4" class="feedback" style="display: none;"></div>
+                        </div>
+                        
+                        <div style="margin: 1rem 0;">
+                            <p>5. Ein __________ am R&uuml;cken braucht regelm&auml;&szlig;ige Behandlung. (vết loét do tì đè)</p>
+                            <input type="text" class="input-field" id="vocab5" placeholder="Ihre Antwort hier...">
+                            <button class="check-button" onclick="checkVocabAnswer(5, 'Druckgeschwür')">Pr&uuml;fen</button>
+                            <div id="feedback5" class="feedback" style="display: none;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grammar Section -->
+            <div id="grammar-section" class="lesson-panel">
+                <div class="grammar-section">
+                    <h2 class="section-title">
+                        <span>Grammatik</span>
+                        <span class="section-emoji" title="Grammatik">📝</span><br>
+                        <small><em>Ngữ pháp</em></small>
+                    </h2>
+                    
+                    <div class="section-content">
+                        <p><strong>Zeit:</strong> 20 Minuten - <em>Thời gian: 20 phút</em></p>
+                        <h3><strong>Fokus: Perfekt mit "haben" und "sein"</strong></h3>
+                        <p><em>Trọng tâm: Thì hoàn thành với "haben" và "sein"</em></p>
+                    </div>
+
+                    <div class="section-content">
+                        <h3>Regel - <em>Quy tắc</em></h3>
+                        <ul style="font-size: 1.1rem; line-height: 1.8;">
+                            <li><strong>Verben der Bewegung → sein</strong><br>
+                                <em>Động từ chỉ chuyển động → dùng "sein"</em></li>
+                            <li><strong>Verben der Zustands&auml;nderung → sein</strong><br>
+                                <em>Động từ chỉ sự thay đổi trạng thái → dùng "sein"</em></li>
+                            <li><strong>Andere Verben → haben</strong><br>
+                                <em>Các động từ khác → dùng "haben"</em></li>
+                        </ul>
+                    </div>
+
+                    <div class="section-content">
+                        <h3>Beispiele aus dem Text - <em>Ví dụ từ văn bản</em></h3>
+                        
+                        <h4>Mit "haben":</h4>
+                        <ul style="font-size: 1.1rem; line-height: 1.8;">
+                            <li>"Maria <strong>hat</strong> eine gute Ausbildung <strong>gemacht</strong>"<br>
+                                <em>Maria đã hoàn thành một khóa đào tạo tốt</em></li>
+                            <li>"Die Kollegen <strong>haben</strong> ihr sehr <strong>geholfen</strong>"<br>
+                                <em>Các đồng nghiệp đã giúp cô ấy rất nhiều</em></li>
+                        </ul>
+
+                        <h4>Mit "sein":</h4>
+                        <ul style="font-size: 1.1rem; line-height: 1.8;">
+                            <li>"Maria <strong>ist</strong> heute zum ersten Mal <strong>gekommen</strong>"<br>
+                                <em>Maria hôm nay đã đến lần đầu tiên</em></li>
+                            <li>"Der Patient <strong>ist</strong> sehr schwach <strong>geworden</strong>"<br>
+                                <em>Bệnh nhân đã trở nên rất yếu</em></li>
+                        </ul>
+                    </div>
+
+                    <div class="interactive-exercise">
+                        <h3>&Uuml;bung <span class="extra-emoji" title="Trophy">🏆</span> - <em>Bài tập</em></h3>
+                        <p class="exercise-question">
+                            <strong>Erg&auml;nzen Sie mit "haben" oder "sein":</strong><br>
+                            <em>Điền "haben" hoặc "sein":</em>
+                        </p>
+                        
+                        <div style="margin: 1rem 0;">
+                            <p>1. Maria _____ nerv&ouml;s _______ (sein)</p>
+                            <input type="text" class="input-field" id="grammar1a" placeholder="haben/sein" style="width: 120px; display: inline-block; margin: 0 5px;">
+                            <input type="text" class="input-field" id="grammar1b" placeholder="Partizip" style="width: 120px; display: inline-block; margin: 0 5px;">
+                            <button class="check-button" onclick="checkGrammarAnswer(1, 'ist', 'gewesen')">Pr&uuml;fen</button>
+                            <div id="grammar-feedback1" class="feedback" style="display: none;"></div>
+                        </div>
+                        
+                        <div style="margin: 1rem 0;">
+                            <p>2. Sie _____ viel _______ (lernen)</p>
+                            <input type="text" class="input-field" id="grammar2a" placeholder="haben/sein" style="width: 120px; display: inline-block; margin: 0 5px;">
+                            <input type="text" class="input-field" id="grammar2b" placeholder="Partizip" style="width: 120px; display: inline-block; margin: 0 5px;">
+                            <button class="check-button" onclick="checkGrammarAnswer(2, 'hat', 'gelernt')">Pr&uuml;fen</button>
+                            <div id="grammar-feedback2" class="feedback" style="display: none;"></div>
+                        </div>
+                        
+                        <div style="margin: 1rem 0;">
+                            <p>3. Der Patient _____ freundlich _______ (antworten)</p>
+                            <input type="text" class="input-field" id="grammar3a" placeholder="haben/sein" style="width: 120px; display: inline-block; margin: 0 5px;">
+                            <input type="text" class="input-field" id="grammar3b" placeholder="Partizip" style="width: 120px; display: inline-block; margin: 0 5px;">
+                            <button class="check-button" onclick="checkGrammarAnswer(3, 'hat', 'geantwortet')">Pr&uuml;fen</button>
+                            <div id="grammar-feedback3" class="feedback" style="display: none;"></div>
+                        </div>
+
+                        <div style="margin: 1rem 0;">
+                            <p>4. Die Schwester _____ ins Zimmer _______ (gehen)</p>
+                            <input type="text" class="input-field" id="grammar4a" placeholder="haben/sein" style="width: 120px; display: inline-block; margin: 0 5px;">
+                            <input type="text" class="input-field" id="grammar4b" placeholder="Partizip" style="width: 120px; display: inline-block; margin: 0 5px;">
+                            <button class="check-button" onclick="checkGrammarAnswer(4, 'ist', 'gegangen')">Pr&uuml;fen</button>
+                            <div id="grammar-feedback4" class="feedback" style="display: none;"></div>
+                        </div>
+
+                        <div style="margin: 1rem 0;">
+                            <p>5. Wir _____ die Dokumentation _______ (schreiben)</p>
+                            <input type="text" class="input-field" id="grammar5a" placeholder="haben/sein" style="width: 120px; display: inline-block; margin: 0 5px;">
+                            <input type="text" class="input-field" id="grammar5b" placeholder="Partizip" style="width: 120px; display: inline-block; margin: 0 5px;">
+                            <button class="check-button" onclick="checkGrammarAnswer(5, 'haben', 'geschrieben')">Pr&uuml;fen</button>
+                            <div id="grammar-feedback5" class="feedback" style="display: none;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reading Section -->
+            <div id="reading-section" class="lesson-panel">
+                <div class="reading-section">
+                    <h2 class="section-title">
+                        <span>Leseteil</span>
+                        <span class="section-emoji" title="Lesen">📖</span><br>
+                        <small><em>Phần đọc</em></small>
+                    </h2>
+                    
+                    <div class="section-content">
+                        <p><strong>Zeit:</strong> 25 Minuten - <em>Thời gian: 25 phút</em></p>
+                    </div>
+
+                    <div class="reading-text">
+                        <h4>Text A: Das magische Fieberthermometer <span class="extra-emoji" title="Book">📚</span></h4>
+                        <p>Im Kinderkrankenhaus gibt es ein besonderes Fieberthermometer, das die Kinder "Zauberstab" nennen. Jedes Mal, wenn Schwester Emma es benutzt, passieren lustige Dinge! Heute betreut sie den kleinen Tim, der Angst vor der Temperaturmessung hat.</p>
+
+                        <p>"Keine Sorge, Tim", sagt Emma l&auml;chelnd. "Mein Thermometer ist magisch!" W&auml;hrend sie seine Temperatur misst, erz&auml;hlt sie: "Es kann nicht nur Fieber messen, sondern auch Geschichten erfinden!" Tim, der neugierig geworden ist, vergisst seine Angst.</p>
+
+                        <p>Pl&ouml;tzlich piept das Thermometer und zeigt nicht nur die Temperatur an, sondern auch eine kleine Nachricht: "Tim ist ein tapferer Junge und wird bald gesund!" Der Kleine lacht begeistert und fragt: "Kann es noch mehr sagen?" Emma nickt und erkl&auml;rt: "Es sagt, dass du heute Abend dein Lieblingsdessert bekommst!"</p>
+
+                        <p>Die anderen Kinder auf der Station h&ouml;ren von dem magischen Thermometer und wollen es auch ausprobieren. Emma, die kreativ und einf&uuml;hlsam ist, findet f&uuml;r jedes Kind eine passende "magische" Nachricht. Obwohl es nur ein normales Thermometer ist, verwandelt ihre Fantasie die Angst in Freude.</p>
+                    </div>
+
+                    <div class="interactive-exercise">
+                        <h3>Verst&auml;ndnisfragen zu Text A <span class="extra-emoji" title="Thinking">🤔</span> - <em>Câu hỏi hiểu bài văn A</em></h3>
+                        
+                        <div style="margin: 1rem 0;">
+                            <p class="exercise-question">1. Was nennen die Kinder das Fieberthermometer?<br>
+                            <em>Các em nhỏ gọi nhiệt kế là gì?</em></p>
+                            <input type="text" class="input-field" id="reading1" placeholder="Ihre Antwort hier...">
+                            <button class="check-button" onclick="checkReadingAnswer(1, 'Zauberstab')">Pr&uuml;fen</button>
+                            <div id="reading-feedback1" class="feedback" style="display: none;"></div>
+                        </div>
+                        
+                        <div style="margin: 1rem 0;">
+                            <p class="exercise-question">2. Wie hilft Emma den Kindern die Angst zu vergessen?<br>
+                            <em>Emma giúp các em quên đi nỗi sợ hãi như thế nào?</em></p>
+                            <textarea class="input-field" id="reading2" placeholder="Ihre Antwort hier..." rows="3"></textarea>
+                            <button class="check-button" onclick="checkReadingAnswerText(2)">Antwort speichern</button>
+                            <div id="reading-feedback2" class="feedback info" style="display: none;">Antwort gespeichert! - <em>Câu trả lời đã được lưu!</em></div>
+                        </div>
+                        
+                        <div style="margin: 1rem 0;">
+                            <p class="exercise-question">3. Was zeigt das "magische" Thermometer an?<br>
+                            <em>Nhiệt kế "thần kỳ" hiển thị gì?</em></p>
+                            <textarea class="input-field" id="reading3" placeholder="Ihre Antwort hier..." rows="3"></textarea>
+                            <button class="check-button" onclick="checkReadingAnswerText(3)">Antwort speichern</button>
+                            <div id="reading-feedback3" class="feedback info" style="display: none;">Antwort gespeichert! - <em>Câu trả lời đã được lưu!</em></div>
+                        </div>
+                    </div>
+
+                    <div class="reading-text">
+                        <h4>Text B: Ein aufregender erster Arbeitstag <span class="extra-emoji" title="Eyes">👀</span></h4>
+                        <p>Maria ist heute zum ersten Mal als Krankenschwester in der Klinik Westend. Sie ist sehr nerv&ouml;s, obwohl sie eine gute Ausbildung gemacht hat. Um 6:00 Uhr morgens beginnt der Fr&uuml;hdienst. Die Stationsleitung, Frau Weber, zeigt ihr die wichtigsten R&auml;ume.</p>
+
+                        <p>"Hier ist das Stationszimmer", erkl&auml;rt Frau Weber. "Dort finden Sie alle Pflegeberichte und die Pflegeplanung f&uuml;r unsere Patienten. Diese Dokumentation ist sehr wichtig, weil wir dort alle pflegerischen Ma&szlig;nahmen eintragen m&uuml;ssen."</p>
+
+                        <p>Maria bekommt ihre ersten drei Patienten zugeteilt. Herr Schmidt hat ein Druckgeschw&uuml;r am R&uuml;cken und braucht regelm&auml;&szlig;ige Lagerung. Frau M&uuml;ller ist inkontinent und ben&ouml;tigt Hilfe bei der K&ouml;rperpflege. Der dritte Patient, Herr Klein, ist nach einer Operation noch sehr schwach.</p>
+
+                        <p>Als Maria zum ersten Mal Herrn Schmidt's Zimmer betritt, l&auml;chelt er freundlich: "Ach, eine neue Kollegin! Sind Sie auch so nett wie die anderen?" Maria antwortet h&ouml;flich: "Ich hoffe, dass ich Ihnen helfen kann. Wie f&uuml;hlen Sie sich heute?"</p>
+
+                        <p>Die Pflegedokumentation macht Maria anfangs Schwierigkeiten. Sie muss lernen, dass sie jeden Vorgang genau beschreiben muss. "Versorgt nach Plan" oder "Zustand wie gestern" sind unn&ouml;tige Eintragungen, wie ihr eine erfahrene Kollegin erkl&auml;rt.</p>
+
+                        <p>Nach dem anstrengenden ersten Tag ist Maria m&uuml;de, aber zufrieden. Sie hat viel gelernt und freut sich auf morgen. Die Patienten waren freundlich und die Kollegen haben ihr sehr geholfen. "Morgen wird alles einfacher", denkt sie, w&auml;hrend sie nach Hause f&auml;hrt.</p>
+                    </div>
+
+                    <div class="interactive-exercise">
+                        <h3>Verst&auml;ndnisfragen zu Text B <span class="extra-emoji" title="Thinking">🤔</span> - <em>Câu hỏi hiểu bài văn B</em></h3>
+                        
+                        <div style="margin: 1rem 0;">
+                            <p class="exercise-question">1. Wann beginnt Marias erster Arbeitstag?<br>
+                            <em>Ngày làm việc đầu tiên của Maria bắt đầu lúc nào?</em></p>
+                            <input type="text" class="input-field" id="readingB1" placeholder="Ihre Antwort hier...">
+                            <button class="check-button" onclick="checkReadingAnswer('B1', '6:00 Uhr morgens')">Pr&uuml;fen</button>
+                            <div id="reading-feedbackB1" class="feedback" style="display: none;"></div>
+                        </div>
+                        
+                        <div style="margin: 1rem 0;">
+                            <p class="exercise-question">2. Wie viele Patienten bekommt Maria zugeteilt?<br>
+                            <em>Maria được phân công chăm sóc bao nhiêu bệnh nhân?</em></p>
+                            <input type="text" class="input-field" id="readingB2" placeholder="Ihre Antwort hier...">
+                            <button class="check-button" onclick="checkReadingAnswer('B2', 'drei')">Pr&uuml;fen</button>
+                            <div id="reading-feedbackB2" class="feedback" style="display: none;"></div>
+                        </div>
+                        
+                        <div style="margin: 1rem 0;">
+                            <p class="exercise-question">3. Warum ist die Pflegedokumentation wichtig?<br>
+                            <em>Tại sao việc ghi chép chăm sóc lại quan trọng?</em></p>
+                            <textarea class="input-field" id="readingB3" placeholder="Ihre Antwort hier..." rows="3"></textarea>
+                            <button class="check-button" onclick="checkReadingAnswerText('B3')">Antwort speichern</button>
+                            <div id="reading-feedbackB3" class="feedback info" style="display: none;">Antwort gespeichert! - <em>Câu trả lời đã được lưu!</em></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Listening & Speaking Section -->
+            <div id="listening-section" class="lesson-panel">
+                <div class="listening-section">
+                    <h2 class="section-title">
+                        <span>Hör- und Sprechteil</span>
+                        <span class="section-emoji" title="Hören & Sprechen">🗣️</span><br>
+                        <small><em>Phần nghe và nói</em></small>
+                    </h2>
+                    
+                    <div class="section-content">
+                        <p><strong>Zeit:</strong> 15 Minuten - <em>Thời gian: 15 phút</em></p>
+                    </div>
+
+                    <div class="section-content">
+                        <h3>Diktat-&Uuml;bung - <em>Bài tập chính tả</em></h3>
+                        <p><strong>Arbeiten Sie zu zweit. Partner A liest, Partner B schreibt:</strong><br>
+                        <em>Làm việc theo cặp. Bạn A đọc, Bạn B viết:</em></p>
+                    </div>
+
+                    <div class="interactive-exercise">
+                        <h4>Satz 1:</h4>
+                        <p style="font-style: italic; margin-bottom: 1rem;">"Das Fieberthermometer ist ein wichtiges medizinisches Ger&auml;t."</p>
+                        <textarea class="input-field" id="dictation1" placeholder="Schreiben Sie den Satz hier..." rows="2"></textarea>
+                        <button class="check-button" onclick="checkDictation(1, 'Das Fieberthermometer ist ein wichtiges medizinisches Gerät.')">Pr&uuml;fen</button>
+                        <div id="dictation-feedback1" class="feedback" style="display: none;"></div>
+                        
+                        <h4 style="margin-top: 2rem;">Satz 2:</h4>
+                        <p style="font-style: italic; margin-bottom: 1rem;">"Die Stationsleitung erkl&auml;rt neue Mitarbeiter die Arbeitsabl&auml;ufe."</p>
+                        <textarea class="input-field" id="dictation2" placeholder="Schreiben Sie den Satz hier..." rows="2"></textarea>
+                        <button class="check-button" onclick="checkDictation(2, 'Die Stationsleitung erklärt neue Mitarbeiter die Arbeitsabläufe.')">Pr&uuml;fen</button>
+                        <div id="dictation-feedback2" class="feedback" style="display: none;"></div>
+                        
+                        <h4 style="margin-top: 2rem;">Satz 3:</h4>
+                        <p style="font-style: italic; margin-bottom: 1rem;">"Einf&uuml;hlsame Pflege hilft Patienten bei der Genesung."</p>
+                        <textarea class="input-field" id="dictation3" placeholder="Schreiben Sie den Satz hier..." rows="2"></textarea>
+                        <button class="check-button" onclick="checkDictation(3, 'Einfühlsame Pflege hilft Patienten bei der Genesung.')">Pr&uuml;fen</button>
+                        <div id="dictation-feedback3" class="feedback" style="display: none;"></div>
+                    </div>
+
+                    <div class="section-content">
+                        <h3>Gespr&auml;ch - <em>Đối thoại</em></h3>
+                        <p><strong>Sprechen Sie &uuml;ber:</strong> - <em>Nói về:</em></p>
+                        <ul style="font-size: 1.1rem; line-height: 1.8;">
+                            <li>Erster Arbeitstag im Krankenhaus - <em>Ngày làm việc đầu tiên tại bệnh viện</em></li>
+                            <li>Umgang mit &auml;ngstlichen Patienten - <em>Cách đối phó với bệnh nhân lo lắng</em></li>
+                        </ul>
+
+                        <h4>N&uuml;tzliche Ausdr&uuml;cke - <em>Cụm từ hữu ích</em>:</h4>
+                        <ul style="font-size: 1.1rem; line-height: 1.8;">
+                            <li>"Am ersten Tag war ich..." - <em>Ngày đầu tiên tôi đã...</em></li>
+                            <li>"Die Patienten brauchen..." - <em>Bệnh nhân cần...</em></li>
+                            <li>"Wichtig ist..." - <em>Điều quan trọng là...</em></li>
+                            <li>"Ich f&uuml;hle mich..." - <em>Tôi cảm thấy...</em></li>
+                            <li>"In meiner Erfahrung..." - <em>Theo kinh nghiệm của tôi...</em></li>
+                        </ul>
+                    </div>
+
+                    <div class="interactive-exercise">
+                        <h3>Sprechen&uuml;bung - <em>Bài tập nói</em></h3>
+                        <p class="exercise-question">
+                            <strong>Beantworten Sie diese Fragen m&uuml;ndlich:</strong><br>
+                            <em>Trả lời những câu hỏi này bằng lời:</em>
+                        </p>
+                        
+                        <div style="margin: 1.5rem 0; background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px;">
+                            <p><strong>1.</strong> Wie war Ihr erster Tag bei der Arbeit?<br>
+                            <em>Ngày đầu tiên đi làm của bạn như thế nào?</em></p>
+                        </div>
+                        
+                        <div style="margin: 1.5rem 0; background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px;">
+                            <p><strong>2.</strong> Was machen Sie, wenn ein Patient Angst hat?<br>
+                            <em>Bạn làm gì khi một bệnh nhân cảm thấy sợ hãi?</em></p>
+                        </div>
+                        
+                        <div style="margin: 1.5rem 0; background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px;">
+                            <p><strong>3.</strong> Welche Eigenschaften sollte eine gute Pflegekraft haben?<br>
+                            <em>Một điều dưỡng viên giỏi nên có những đặc điểm gì?</em></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Writing Section -->
+            <div id="writing-section" class="lesson-panel">
+                <div class="production-section">
+                    <h2 class="section-title">
+                        <span>Schreib&uuml;bung</span>
+                        <span class="section-emoji" title="Schreiben">✍️</span><br>
+                        <small><em>Bài tập viết</em></small>
+                    </h2>
+                    
+                    <div class="section-content">
+                        <p><strong>Zeit:</strong> 10 Minuten - <em>Thời gian: 10 phút</em></p>
+                    </div>
+
+                    <div class="writing-area">
+                        <h3>Aufgabe <span class="extra-emoji" title="Pen">🖊️</span> - <em>Nhiệm vụ</em></h3>
+                        <p class="exercise-question">
+                            <strong>Schreiben Sie einen kurzen Text (80-100 W&ouml;rter):</strong><br>
+                            <em>Viết một đoạn văn ngắn (80-100 từ):</em>
+                        </p>
+                        
+                        <h4>"Mein erster Tag als Krankenpfleger/in"</h4>
+                        <p><em>Ngày đầu tiên của tôi với tư cách là điều dưỡng viên</em></p>
+                        
+                        <p><strong>Verwenden Sie diese W&ouml;rter:</strong> - <em>Sử dụng những từ này:</em></p>
+                        <ul style="margin: 1rem 0;">
+                            <li>nerv&ouml;s</li>
+                            <li>Stationsleitung</li>
+                            <li>Patienten</li>
+                            <li>einf&uuml;hlsam</li>
+                            <li>Dokumentation</li>
+                        </ul>
+                        
+                        <textarea 
+                            class="writing-textarea" 
+                            id="writingText" 
+                            placeholder="Schreiben Sie hier Ihren Text... Zum Beispiel: Am ersten Tag war ich sehr nervös..."
+                            oninput="updateWordCount()"
+                        ></textarea>
+                        
+                        <div class="word-count">
+                            <span id="wordCount">0</span> W&ouml;rter - <em>từ</em>
+                        </div>
+                        
+                        <button class="check-button" onclick="saveWriting()" style="margin-top: 1rem;">
+                            Text speichern - <em>Lưu văn bản</em>
+                        </button>
+                        
+                        <div id="writing-feedback" class="feedback info" style="display: none;">
+                            Text erfolgreich gespeichert! - <em>Văn bản đã được lưu thành công!</em>
+                        </div>
+                    </div>
+
+                    <div class="section-content">
+                        <h3>Schreibhilfe - <em>Hỗ trợ viết</em></h3>
+                        <h4>N&uuml;tzliche S&auml;tze - <em>Những câu hữu ích</em>:</h4>
+                        <ul style="font-size: 1.1rem; line-height: 1.8;">
+                            <li>"Am ersten Tag war ich..." - <em>Ngày đầu tiên tôi đã...</em></li>
+                            <li>"Die Stationsleitung hat mir..." - <em>Trưởng khoa đã... cho tôi</em></li>
+                            <li>"Meine ersten Patienten waren..." - <em>Những bệnh nhân đầu tiên của tôi...</em></li>
+                            <li>"Besonders wichtig fand ich..." - <em>Tôi thấy đặc biệt quan trọng...</em></li>
+                            <li>"F&uuml;r die Zukunft hoffe ich..." - <em>Cho tương lai tôi hy vọng...</em></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Summary Section -->
+            <div id="summary-section" class="lesson-panel">
+                <div class="summary-section">
+                    <h2 class="section-title">
+                        <span>Zusammenfassung</span>
+                        <span class="stethoscope-emoji" title="Stethoskop">🩺</span>
+                        <span class="section-emoji" title="Idee">💡</span><br>
+                        <small><em>Tóm tắt</em></small>
+                    </h2>
+                    
+                    <div class="section-content">
+                        <p><strong>Zeit:</strong> 5 Minuten - <em>Thời gian: 5 phút</em></p>
+                    </div>
+
+                    <div class="section-content">
+                        <h3>Heute haben wir gelernt - <em>Hôm nay chúng ta đã học</em>:</h3>
+                        <ul style="font-size: 1.1rem; line-height: 1.8;">
+                            <li><strong>Wortschatz für den ersten Krankenhaustag</strong><br>
+                                <em>Từ vựng cho ngày đầu tiên tại bệnh viện</em></li>
+                            <li><strong>Perfekt mit "haben" und "sein"</strong><br>
+                                <em>Thì hoàn thành với "haben" và "sein"</em></li>
+                            <li><strong>Umgang mit Patienten</strong><br>
+                                <em>Cách đối phó với bệnh nhân</em></li>
+                            <li><strong>Wichtigkeit der Dokumentation</strong><br>
+                                <em>Tầm quan trọng của việc ghi chép</em></li>
+                        </ul>
+                    </div>
+
+                    <div class="facts-grid">
+                        <div class="fact-item">
+                            <span class="fact-emoji">🌡️</span>
+                            <span class="extra-emoji" title="Pill">💊</span>
+                            <p><strong>Wussten Sie schon?</strong><br>
+                            <em>Bạn đã biết chưa?</em></p>
+                            <p>Das erste Fieberthermometer wurde 1866 erfunden</p>
+                            <p><em>Nhiệt kế đầu tiên được phát minh năm 1866</em></p>
+                        </div>
+                        <div class="fact-item">
+                            <span class="fact-emoji">👩‍⚕️</span>
+                            <span class="extra-emoji" title="DNA">🧬</span>
+                            <p><strong>Interessant!</strong><br>
+                            <em>Thú vị!</em></p>
+                            <p>In Deutschland arbeiten &uuml;ber 1,7 Millionen Menschen in der Pflege</p>
+                            <p><em>Ở Đức có hơn 1,7 triệu người làm việc trong ngành chăm sóc</em></p>
+                        </div>
+                        <div class="fact-item">
+                            <span class="fact-emoji">🏥</span>
+                            <span class="extra-emoji" title="Test tube">🧪</span>
+                            <p><strong>Geschichte</strong><br>
+                            <em>Lịch sử</em></p>
+                            <p>Das &auml;lteste Krankenhaus Deutschlands steht in W&uuml;rzburg (seit 1319)</p>
+                            <p><em>Bệnh viện lâu đời nhất nước Đức ở Würzburg (từ năm 1319)</em></p>
+                        </div>
+                        <div class="fact-item">
+                            <span class="fact-emoji">📋</span>
+                            <span class="extra-emoji" title="Bandage">🩹</span>
+                            <p><strong>Wichtig zu wissen</strong><br>
+                            <em>Điều quan trọng cần biết</em></p>
+                            <p>Ein Pflegebericht muss mindestens 10 Jahre aufbewahrt werden</p>
+                            <p><em>Báo cáo chăm sóc phải được lưu trữ ít nhất 10 năm</em></p>
+                        </div>
+                    </div>
+
+                    <div class="interactive-exercise">
+                        <h3>Hausaufgabe - <em>Bài tập về nhà</em></h3>
+                        <p class="exercise-question">
+                            <strong>Schreiben Sie einen kurzen Text (80-100 W&ouml;rter):</strong><br>
+                            <em>Viết một đoạn văn ngắn (80-100 từ):</em>
+                        </p>
+                        
+                        <h4>"Mein erster Arbeitstag im Krankenhaus"</h4>
+                        <p><em>Ngày làm việc đầu tiên của tôi tại bệnh viện</em></p>
+                        
+                        <p><strong>Verwenden Sie diese W&ouml;rter:</strong> - <em>Sử dụng những từ này:</em></p>
+                        <ul style="margin: 1rem 0;">
+                            <li>nerv&ouml;s</li>
+                            <li>Stationsleitung</li>
+                            <li>Patienten</li>
+                            <li>einf&uuml;hlsam</li>
+                            <li>Dokumentation</li>
+                        </ul>
+                        
+                        <textarea 
+                            class="writing-textarea" 
+                            id="homeworkText" 
+                            placeholder="Schreiben Sie hier Ihren Text... Zum Beispiel: Am ersten Tag war ich sehr nervös..."
+                            oninput="updateHomeworkWordCount()"
+                        ></textarea>
+                        
+                        <div class="word-count">
+                            <span id="homeworkWordCount">0</span> W&ouml;rter - <em>từ</em>
+                        </div>
+                        
+                        <button class="check-button" onclick="saveHomework()" style="margin-top: 1rem;">
+                            Text speichern - <em>Lưu văn bản</em>
+                        </button>
+                        
+                        <div id="homework-feedback" class="feedback info" style="display: none;">
+                            Text erfolgreich gespeichert! - <em>Văn bản đã được lưu thành công!</em>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Lesson Navigation
+        function showSection(sectionName) {
+            // Hide all panels
+            const panels = document.querySelectorAll('.lesson-panel');
+            panels.forEach(panel => {
+                panel.classList.remove('active');
+                panel.style.display = 'none';
+            });
+            
+            // Remove active class from all tab buttons
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => button.classList.remove('active'));
+            
+            // Show selected panel
+            const selectedPanel = document.getElementById(sectionName + '-section');
+            if (selectedPanel) {
+                selectedPanel.classList.add('active');
+                selectedPanel.style.display = 'block';
+            }
+            
+            // Add active class to clicked button
+            event.target.closest('.tab-button').classList.add('active');
+            
+            // Save progress
+            localStorage.setItem('currentSection', sectionName);
+        }
+
+        // Load saved progress on page load
+        window.addEventListener('load', function() {
+            const savedSection = localStorage.getItem('currentSection');
+            if (savedSection) {
+                const button = document.querySelector(`[onclick="showSection('${savedSection}')"]`);
+                if (button) {
+                    button.click();
+                }
+            }
+        });
+
+        // Sound functionality
+        function playSound(word) {
+            // Create audio context for text-to-speech
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(word);
+                utterance.lang = 'de-DE';
+                utterance.rate = 0.8;
+                speechSynthesis.speak(utterance);
+            } else {
+                alert('Ihr Browser unterst&uuml;tzt keine Sprachausgabe. - Trình duyệt của bạn không hỗ trợ phát âm.');
+            }
+        }
+
+        // Vocabulary exercise checking
+        function checkVocabAnswer(questionNumber, correctAnswer) {
+            const userAnswer = document.getElementById('vocab' + questionNumber).value.trim();
+            const feedback = document.getElementById('feedback' + questionNumber);
+            
+            if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
+                feedback.className = 'feedback correct';
+                feedback.innerHTML = 'Richtig! - <em>Đúng rồi!</em>';
+                feedback.style.display = 'block';
+            } else {
+                feedback.className = 'feedback incorrect';
+                feedback.innerHTML = `Nicht ganz richtig. Die richtige Antwort ist: <strong>${correctAnswer}</strong><br><em>Chưa đúng. Câu trả lời đúng là: <strong>${correctAnswer}</strong></em>`;
+                feedback.style.display = 'block';
+            }
+            
+            // Save answer
+            localStorage.setItem(`vocab_${questionNumber}_answer`, userAnswer);
+        }
+
+        // Grammar exercise checking
+        function checkGrammarAnswer(questionNumber, correctAux, correctParticiple) {
+            const userAux = document.getElementById('grammar' + questionNumber + 'a').value.trim();
+            const userParticiple = document.getElementById('grammar' + questionNumber + 'b').value.trim();
+            const feedback = document.getElementById('grammar-feedback' + questionNumber);
+            
+            const auxCorrect = userAux.toLowerCase() === correctAux.toLowerCase();
+            const participleCorrect = userParticiple.toLowerCase() === correctParticiple.toLowerCase();
+            
+            if (auxCorrect && participleCorrect) {
+                feedback.className = 'feedback correct';
+                feedback.innerHTML = 'Richtig! - <em>Đúng rồi!</em>';
+            } else if (auxCorrect && !participleCorrect) {
+                feedback.className = 'feedback incorrect';
+                feedback.innerHTML = `Hilfsverb richtig, aber das Partizip sollte <strong>${correctParticiple}</strong> sein.<br><em>Trợ động từ đúng, nhưng quá khứ phân từ phải là <strong>${correctParticiple}</strong></em>`;
+            } else if (!auxCorrect && participleCorrect) {
+                feedback.className = 'feedback incorrect';
+                feedback.innerHTML = `Partizip richtig, aber das Hilfsverb sollte <strong>${correctAux}</strong> sein.<br><em>Quá khứ phân từ đúng, nhưng trợ động từ phải là <strong>${correctAux}</strong></em>`;
+            } else {
+                feedback.className = 'feedback incorrect';
+                feedback.innerHTML = `Die richtige Antwort ist: <strong>${correctAux} ${correctParticiple}</strong><br><em>Câu trả lời đúng là: <strong>${correctAux} ${correctParticiple}</strong></em>`;
+            }
+            
+            feedback.style.display = 'block';
+            
+            // Save answers
+            localStorage.setItem(`grammar_${questionNumber}a_answer`, userAux);
+            localStorage.setItem(`grammar_${questionNumber}b_answer`, userParticiple);
+        }
+
+        // Reading comprehension checking
+        function checkReadingAnswer(questionId, correctAnswer) {
+            const userAnswer = document.getElementById('reading' + questionId).value.trim();
+            const feedback = document.getElementById('reading-feedback' + questionId);
+            
+            if (userAnswer.toLowerCase().includes(correctAnswer.toLowerCase())) {
+                feedback.className = 'feedback correct';
+                feedback.innerHTML = 'Richtig! - <em>Đúng rồi!</em>';
+            } else {
+                feedback.className = 'feedback incorrect';
+                feedback.innerHTML = `Die richtige Antwort ist: <strong>${correctAnswer}</strong><br><em>Câu trả lời đúng là: <strong>${correctAnswer}</strong></em>`;
+            }
+            
+            feedback.style.display = 'block';
+            localStorage.setItem(`reading_${questionId}_answer`, userAnswer);
+        }
+
+        // Save reading text answers
+        function checkReadingAnswerText(questionId) {
+            const userAnswer = document.getElementById('reading' + questionId).value.trim();
+            const feedback = document.getElementById('reading-feedback' + questionId);
+            
+            if (userAnswer.length > 10) {
+                feedback.style.display = 'block';
+                localStorage.setItem(`reading_${questionId}_answer`, userAnswer);
+            } else {
+                alert('Bitte schreiben Sie eine l&auml;ngere Antwort. - Vui lòng viết câu trả lời dài hơn.');
+            }
+        }
+
+        // Dictation checking
+        function checkDictation(sentenceNumber, correctSentence) {
+            const userAnswer = document.getElementById('dictation' + sentenceNumber).value.trim();
+            const feedback = document.getElementById('dictation-feedback' + sentenceNumber);
+            
+            // Simple comparison (case insensitive, ignore some punctuation)
+            const userNormalized = userAnswer.toLowerCase().replace(/[.!?]/g, '');
+            const correctNormalized = correctSentence.toLowerCase().replace(/[.!?]/g, '');
+            
+            const similarity = calculateSimilarity(userNormalized, correctNormalized);
+            
+            if (similarity > 0.9) {
+                feedback.className = 'feedback correct';
+                feedback.innerHTML = 'Sehr gut! - <em>Rất tốt!</em>';
+            } else if (similarity > 0.7) {
+                feedback.className = 'feedback info';
+                feedback.innerHTML = 'Fast richtig! Pr&uuml;fen Sie die Rechtschreibung. - <em>Gần đúng! Kiểm tra lại chính tả.</em>';
+            } else {
+                feedback.className = 'feedback incorrect';
+                feedback.innerHTML = `Richtige Schreibweise: <strong>${correctSentence}</strong><br><em>Cách viết đúng: <strong>${correctSentence}</strong></em>`;
+            }
+            
+            feedback.style.display = 'block';
+            localStorage.setItem(`dictation_${sentenceNumber}_answer`, userAnswer);
+        }
+
+        // Calculate text similarity
+        function calculateSimilarity(str1, str2) {
+            const words1 = str1.split(' ');
+            const words2 = str2.split(' ');
+            let matches = 0;
+            
+            words1.forEach(word => {
+                if (words2.includes(word)) {
+                    matches++;
+                }
+            });
+            
+            return matches / Math.max(words1.length, words2.length);
+        }
+
+        // Word counting for writing exercise
+        function updateWordCount() {
+            const text = document.getElementById('writingText').value;
+            const words = text.trim().split(/\s+/).filter(word => word.length > 0);
+            document.getElementById('wordCount').textContent = words.length;
+        }
+
+        // Save writing
+        function saveWriting() {
+            const text = document.getElementById('writingText').value.trim();
+            const feedback = document.getElementById('writing-feedback');
+            
+            if (text.length > 50) {
+                localStorage.setItem('writing_text', text);
+                feedback.style.display = 'block';
+                setTimeout(() => {
+                    feedback.style.display = 'none';
+                }, 3000);
+            } else {
+                alert('Bitte schreiben Sie mindestens 50 Zeichen. - Vui lòng viết ít nhất 50 ký tự.');
+            }
+        }
+
+        // Rate lesson
+        function ratLesson(rating) {
+            localStorage.setItem('lesson_rating', rating);
+            const feedback = document.getElementById('lesson-rating');
+            feedback.style.display = 'block';
+            
+            setTimeout(() => {
+                feedback.style.display = 'none';
+            }, 3000);
+        }
+
+        // Load saved answers on page load
+        window.addEventListener('load', function() {
+            // Load vocabulary answers
+            for (let i = 1; i <= 5; i++) {
+                const saved = localStorage.getItem(`vocab_${i}_answer`);
+                if (saved) {
+                    const input = document.getElementById('vocab' + i);
+                    if (input) input.value = saved;
+                }
+            }
+            
+            // Load grammar answers
+            for (let i = 1; i <= 5; i++) {
+                const savedA = localStorage.getItem(`grammar_${i}a_answer`);
+                const savedB = localStorage.getItem(`grammar_${i}b_answer`);
+                if (savedA) {
+                    const inputA = document.getElementById('grammar' + i + 'a');
+                    if (inputA) inputA.value = savedA;
+                }
+                if (savedB) {
+                    const inputB = document.getElementById('grammar' + i + 'b');
+                    if (inputB) inputB.value = savedB;
+                }
+            }
+            
+            // Load reading answers
+            const readingIds = ['1', '2', '3', 'B1', 'B2', 'B3'];
+            readingIds.forEach(id => {
+                const saved = localStorage.getItem(`reading_${id}_answer`);
+                if (saved) {
+                    const input = document.getElementById('reading' + id);
+                    if (input) input.value = saved;
+                }
+            });
+            
+            // Load dictation answers
+            for (let i = 1; i <= 3; i++) {
+                const saved = localStorage.getItem(`dictation_${i}_answer`);
+                if (saved) {
+                    const input = document.getElementById('dictation' + i);
+                    if (input) input.value = saved;
+                }
+            }
+            
+            // Load writing text
+            const savedWriting = localStorage.getItem('writing_text');
+            if (savedWriting) {
+                const textarea = document.getElementById('writingText');
+                if (textarea) {
+                    textarea.value = savedWriting;
+                    updateWordCount();
+                }
+            }
+        });
+
+        // Auto-save functionality for all inputs
+        document.addEventListener('input', function(e) {
+            if (e.target.classList.contains('input-field') || e.target.classList.contains('writing-textarea')) {
+                const key = e.target.id + '_autosave';
+                localStorage.setItem(key, e.target.value);
+            }
+        });
+
+        // Load auto-saved content
+        window.addEventListener('load', function() {
+            const inputs = document.querySelectorAll('.input-field, .writing-textarea');
+            inputs.forEach(input => {
+                const key = input.id + '_autosave';
+                const saved = localStorage.getItem(key);
+                if (saved && !input.value) {
+                    input.value = saved;
+                }
+            });
+        });
+
+        // Global auto-save every 1 minute
+        setInterval(function() {
+            const inputs = document.querySelectorAll('.input-field, .writing-textarea');
+            inputs.forEach(input => {
+                const key = input.id + '_autosave';
+                localStorage.setItem(key, input.value);
+            });
+            // Show popup
+            const popup = document.getElementById('autosave-popup');
+            if (popup) {
+                popup.style.display = 'block';
+                popup.style.opacity = '1';
+                clearTimeout(window._autosavePopupTimeout);
+                window._autosavePopupTimeout = setTimeout(function() {
+                    popup.style.opacity = '0';
+                    setTimeout(() => { popup.style.display = 'none'; }, 300);
+                }, 1500);
+            }
+        }, 60000);
+    </script>
+</body>
+</html>
+            

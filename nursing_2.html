@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Lektion 2: Kernkompetenzen der Patientenversorgung - Deutsch für Vietnamesen">
+    <title>Lektion 2: Kernkompetenzen der Patientenversorgung - Deutsch Campus</title>
+    <style>
+        /* CSS Reset und Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f7fa;
+        }
+
+        .lesson-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        /* Navigation Styles */
+        .lesson-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .tab-button {
+            background: #e9ecef;
+            border: none;
+            padding: 12px 24px;
+            margin: 0 4px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            min-height: 44px;
+        }
+
+        .tab-button:hover {
+            background: #dee2e6;
+        }
+
+        .tab-button.active {
+            background: #007bff;
+            color: white;
+        }
+
+        .lesson-panel {
+            display: none;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .lesson-panel.active {
+            display: block;
+        }
+
+        /* Section Headers */
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem 0;
+            color: #34495e;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            margin: 1.5rem 0 1rem 0;
+            color: #2c3e50;
+        }
+
+        /* Color-coded sections */
+        .vocabulary-section {
+            background: #e7f3ff;
+            border-left: 6px solid #007bff;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+
+        .grammar-section {
+            background: #e8f5e8;
+            border-left: 6px solid #28a745;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+
+        .production-section {
+            background: #fff3e0;
+            border-left: 6px solid #fd7e14;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+
+        /* Vocabulary Items */
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .vocab-item {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .vocab-word {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #007bff;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .vocab-ipa {
+            font-style: italic;
+            color: #6c757d;
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .vocab-vietnamese {
+            color: #28a745;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .vocab-sample {
+            font-style: italic;
+            color: #6c757d;
+            margin-bottom: 0.5rem;
+        }
+
+        .vocab-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .sound-button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            min-height: 32px;
+        }
+
+        .sound-button:hover {
+            background: #0056b3;
+        }
+
+        .image-link {
+            color: #28a745;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        /* Grammar Examples */
+        .grammar-examples {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+        }
+
+        .grammar-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        .grammar-table th,
+        .grammar-table td {
+            padding: 8px 12px;
+            border: 1px solid #dee2e6;
+            text-align: left;
+        }
+
+        .grammar-table th {
+            background: #e9ecef;
+            font-weight: bold;
+        }
+
+        /* Reading Text */
+        .reading-text {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* Interactive Elements */
+        .interactive-exercise {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid #e9ecef;
+            margin: 1rem 0;
+        }
+
+        .exercise-item {
+            margin: 1rem 0;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 6px;
+        }
+
+        .exercise-input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-size: 16px;
+            margin: 0.5rem 0;
+        }
+
+        .exercise-input:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+        }
+
+        .check-button {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 0.5rem 0;
+        }
+
+        .check-button:hover {
+            background: #218838;
+        }
+
+        .feedback {
+            padding: 0.75rem;
+            border-radius: 4px;
+            margin: 0.5rem 0;
+            font-weight: 500;
+        }
+
+        .feedback.correct {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .feedback.incorrect {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        /* Writing Areas */
+        .writing-area {
+            margin: 1rem 0;
+        }
+
+        .writing-textarea {
+            width: 100%;
+            min-height: 150px;
+            padding: 12px;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            font-size: 16px;
+            font-family: inherit;
+            resize: vertical;
+        }
+
+        .writing-textarea:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+        }
+
+        .word-count {
+            text-align: right;
+            font-size: 14px;
+            color: #6c757d;
+            margin-top: 0.5rem;
+        }
+
+        .save-indicator {
+            color: #28a745;
+            font-size: 14px;
+            margin-left: 0.5rem;
+        }
+
+        /* Error Analysis */
+        .error-analysis {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+        }
+
+        .error-item {
+            margin: 0.5rem 0;
+            padding: 0.5rem;
+            background: white;
+            border-radius: 4px;
+        }
+
+        /* Vietnamese translations */
+        .vietnamese {
+            color: #6c757d;
+            font-style: italic;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .lesson-container {
+                padding: 0.5rem;
+            }
+
+            .lesson-panel {
+                padding: 1rem;
+            }
+
+            .vocab-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tab-button {
+                padding: 10px 16px;
+                font-size: 14px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white !important;
+                color: black !important;
+                font-size: 12pt !important;
+            }
+
+            .lesson-tabs {
+                display: none !important;
+            }
+
+            .lesson-panel {
+                display: block !important;
+                page-break-before: always;
+                box-shadow: none !important;
+                border: 1px solid black !important;
+            }
+
+            .lesson-panel:first-child {
+                page-break-before: avoid;
+            }
+
+            .vocabulary-section {
+                border: 2px solid black !important;
+                background: white !important;
+            }
+
+            .grammar-section {
+                border: 2px solid black !important;
+                background: white !important;
+            }
+
+            .production-section {
+                border: 2px solid black !important;
+                background: white !important;
+            }
+
+            .sound-button, .check-button {
+                display: none !important;
+            }
+
+            .interactive-exercise::after {
+                content: "Anweisungen für Selbstkontrolle: Überprüfen Sie Ihre Antworten mit einem Partner oder Lehrer.";
+                display: block;
+                font-style: italic;
+                margin-top: 1rem;
+                padding: 0.5rem;
+                border-top: 1px solid black;
+            }
+        }
+
+        /* Progress indicator */
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: #e9ecef;
+            border-radius: 2px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #007bff, #28a745);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .emoji-bounce {
+            display: inline-block;
+            animation: bounce 1.2s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .emoji-wave {
+            display: inline-block;
+            animation: wave 2s infinite;
+        }
+        @keyframes wave {
+            0% { transform: rotate(0deg); }
+            10% { transform: rotate(14deg); }
+            20% { transform: rotate(-8deg); }
+            30% { transform: rotate(14deg); }
+            40% { transform: rotate(-4deg); }
+            50% { transform: rotate(10deg); }
+            60% { transform: rotate(0deg); }
+            100% { transform: rotate(0deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Standalone Header -->
+    <header class="main-header">
+        <h1 style="font-size:2.5rem; text-align:center; margin: 1.5rem 0; color:#007bff; letter-spacing:1px; display:flex; align-items:center; justify-content:center; gap:1rem;">
+            <span style="display:inline-block; animation: spin 2s linear infinite;">🩺</span>
+            Kernkompetenzen der Patientenversorgung
+            <span style="display:inline-block; animation: pulse 1.5s infinite;">💙</span>
+        </h1>
+        <div style="text-align:center; font-size:1.2rem; color:#34495e; margin-bottom:1rem;">
+            <span style="margin:0 0.5rem;">👩‍⚕️</span>
+            <span style="margin:0 0.5rem;">🏥</span>
+            <span style="margin:0 0.5rem;">🌙</span>
+            <span style="margin:0 0.5rem;">💊</span>
+            <span style="margin:0 0.5rem;">📝</span>
+            <span style="margin:0 0.5rem;">🤝</span>
+            <span style="margin:0 0.5rem;">😊</span>
+        </div>
+    </header>
+    <div class="lesson-container">
+        <nav class="lesson-tabs">
+            <button class="tab-button active" onclick="showSection('overview', event)">Übersicht</button>
+            <button class="tab-button" onclick="showSection('vocabulary', event)">Wortschatz</button>
+            <button class="tab-button" onclick="showSection('grammar', event)">Grammatik</button>
+            <button class="tab-button" onclick="showSection('reading', event)">Leseteil</button>
+            <button class="tab-button" onclick="showSection('listening', event)">Hören & Sprechen</button>
+            <button class="tab-button" onclick="showSection('writing', event)">Schreiben</button>
+        </nav>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressBar"></div>
+        </div>
+
+        <!-- Übersicht Section -->
+        <div id="overview" class="lesson-panel active">
+            <h1><span class="emoji-bounce">📝</span> Lektion 2: Kernkompetenzen der Patientenversorgung<br>
+                <span class="vietnamese">Bài học 2: Năng lực cốt lõi trong chăm sóc bệnh nhân</span>
+            </h1>
+            <div class="production-section">
+                <h2><span class="emoji-wave">📋</span> Übersicht der Stunde <em class="vietnamese">Tổng quan bài học</em></h2>
+                <p><strong>Dauer:</strong> 90 Minuten <span class="emoji-bounce">⏰</span> <em class="vietnamese">Thời gian: 90 phút</em></p>
+                <p><strong>Ziel:</strong> Pflegeaufgaben und Nachtdienst verstehen <span class="emoji-bounce">🎯</span> <em class="vietnamese">Mục tiêu: Hiểu nhiệm vụ chăm sóc và ca đêm</em></p>
+                <h3>Heute lernen wir: <span class="emoji-bounce">📚</span> <em class="vietnamese">Hôm nay chúng ta sẽ học:</em></h3>
+                <ul>
+                    <li>Umgang mit Fehlern in der Pflege <span class="emoji-bounce">❗</span> <em class="vietnamese">Cách xử lý lỗi trong chăm sóc</em></li>
+                    <li>Aufgaben der Nachtschicht <span class="emoji-bounce">🌙</span> <em class="vietnamese">Nhiệm vụ ca đêm</em></li>
+                    <li>Modalverben im Präteritum <span class="emoji-bounce">🔤</span> <em class="vietnamese">Động từ khuyết thiếu ở quá khứ</em></li>
+                    <li>Wichtigkeit der Übergabe <span class="emoji-bounce">🤝</span> <em class="vietnamese">Tầm quan trọng của việc bàn giao</em></li>
+                </ul>
+            </div>
+            <div class="production-section">
+                <h3>Interessante Fakten <span class="emoji-bounce">💡</span> <em class="vietnamese">Những sự thật thú vị</em></h3>
+                <div class="interesting-facts">
+                    <p>🌙 In Deutschland arbeiten etwa 15% aller Pflegekräfte im Nachtdienst<br>
+                    <em class="vietnamese">Ở Đức khoảng 15% nhân viên y tế làm ca đêm</em></p>
+                    <p>💊 Medikationsfehler passieren am häufigsten zwischen 22-6 Uhr<br>
+                    <em class="vietnamese">Lỗi dùng thuốc xảy ra nhiều nhất từ 22h-6h</em></p>
+                    <p>📋 Eine ordnungsgemäße Übergabe dauert durchschnittlich 15-20 Minuten<br>
+                    <em class="vietnamese">Một cuộc bàn giao đúng quy trình kéo dài 15-20 phút</em></p>
+                    <p>😄 Lachen produziert Endorphine und unterstützt die Heilung<br>
+                    <em class="vietnamese">Cười tạo ra endorphin và hỗ trợ quá trình chữa lành</em></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vocabulary Section -->
+        <div id="vocabulary" class="lesson-panel">
+            <div class="vocabulary-section">
+                <h2><span class="emoji-bounce">🗣️</span> Vokabelteil <em class="vietnamese">Phần từ vựng</em></h2>
+                <p><strong>Zeit:</strong> 15 Minuten <span class="emoji-bounce">⏳</span> <em class="vietnamese">Thời gian: 15 phút</em></p>
+                <h3>Grundwortschatz: <span class="emoji-bounce">🧠</span> <em class="vietnamese">Từ vựng cơ bản</em></h3>
+                <div class="vocab-grid">
+                    <div class="vocab-item">
+                        <a class="vocab-word" href="https://www.google.com/search?tbm=isch&q=schusselig" target="_blank">schusselig</a>
+                        <span class="vocab-ipa">[ˈʃʊsəlɪç]</span><br>
+                        <span class="vocab-vietnamese">vụng về</span>
+                        <div class="vocab-sample">Er ist manchmal schusselig und vergisst oft seine Schlüssel.</div>
+                        <div class="vocab-controls">
+                            <button class="sound-button" onclick="playSound('schusselig')">🔊</button>
+                        </div>
+                    </div>
+
+                    <div class="vocab-item">
+                        <a class="vocab-word" href="https://www.google.com/search?tbm=isch&q=die+Bettbremse" target="_blank">die Bettbremse</a>
+                        <span class="vocab-ipa">[diː ˈbɛtbrɛmzə]</span><br>
+                        <span class="vocab-vietnamese">phanh giường</span>
+                        <div class="vocab-sample">Bitte prüfen Sie, ob die Bettbremse aktiviert ist.</div>
+                        <div class="vocab-controls">
+                            <button class="sound-button" onclick="playSound('bettbremse')">🔊</button>
+                        </div>
+                    </div>
+
+                    <div class="vocab-item">
+                        <a class="vocab-word" href="https://www.google.com/search?tbm=isch&q=verwechseln" target="_blank">verwechseln</a>
+                        <span class="vocab-ipa">[fɛɐ̯ˈvɛksəln]</span><br>
+                        <span class="vocab-vietnamese">nhầm lẫn</span>
+                        <div class="vocab-sample">Tim hat die Zimmernummern verwechselt.</div>
+                        <div class="vocab-controls">
+                            <button class="sound-button" onclick="playSound('verwechseln')">🔊</button>
+                        </div>
+                    </div>
+
+                    <div class="vocab-item">
+                        <a class="vocab-word" href="https://www.google.com/search?tbm=isch&q=Praxisanleiterin" target="_blank">die Praxisanleiterin</a>
+                        <span class="vocab-ipa">[diː ˈpraksɪsanlaɪtərɪn]</span><br>
+                        <span class="vocab-vietnamese">người hướng dẫn thực hành</span>
+                        <div class="vocab-sample">Die Praxisanleiterin hilft den Praktikanten.</div>
+                        <div class="vocab-controls">
+                            <button class="sound-button" onclick="playSound('praxisanleiterin')">🔊</button>
+                        </div>
+                    </div>
+
+                    <div class="vocab-item">
+                        <a class="vocab-word" href="https://www.google.com/search?tbm=isch&q=hilfsbereit" target="_blank">hilfsbereit</a>
+                        <span class="vocab-ipa">[ˈhɪlfsbəraɪt]</span><br>
+                        <span class="vocab-vietnamese">hay giúp đỡ</span>
+                        <div class="vocab-sample">Sie ist immer hilfsbereit zu ihren Kollegen.</div>
+                        <div class="vocab-controls">
+                            <button class="sound-button" onclick="playSound('hilfsbereit')">🔊</button>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Fachwortschatz: <span class="emoji-bounce">🏥</span> <em class="vietnamese">Từ vựng chuyên ngành</em></h3>
+                <div class="vocab-grid">
+                    <div class="vocab-item">
+                        <a class="vocab-word" href="https://www.google.com/search?tbm=isch&q=Nachtschicht" target="_blank">die Nachtschicht</a>
+                        <span class="vocab-ipa">[diː ˈnaxtʃɪçt]</span><br>
+                        <span class="vocab-vietnamese">ca đêm</span>
+                        <div class="vocab-sample">Anna arbeitet heute in der Nachtschicht.</div>
+                        <div class="vocab-controls">
+                            <button class="sound-button" onclick="playSound('nachtschicht')">🔊</button>
+                        </div>
+                    </div>
+
+                    <div class="vocab-item">
+                        <a class="vocab-word" href="https://www.google.com/search?tbm=isch&q=Medikation" target="_blank">die Medikation</a>
+                        <span class="vocab-ipa">[diː medikaˈt͡si̯oːn]</span><br>
+                        <span class="vocab-vietnamese">việc dùng thuốc</span>
+                        <div class="vocab-sample">Die Medikation muss regelmäßig überprüft werden.</div>
+                        <div class="vocab-controls">
+                            <button class="sound-button" onclick="playSound('medikation')">🔊</button>
+                        </div>
+                    </div>
+
+                    <div class="vocab-item">
+                        <a class="vocab-word" href="https://www.google.com/search?tbm=isch&q=Bereitschaftsarzt" target="_blank">der Bereitschaftsarzt</a>
+                        <span class="vocab-ipa">[deːɐ̯ bəˈraɪtʃaftsarʦt]</span><br>
+                        <span class="vocab-vietnamese">bác sĩ trực</span>
+                        <div class="vocab-sample">Der Bereitschaftsarzt ist nachts erreichbar.</div>
+                        <div class="vocab-controls">
+                            <button class="sound-button" onclick="playSound('bereitschaftsarzt')">🔊</button>
+                        </div>
+                    </div>
+
+                    <div class="vocab-item">
+                        <a class="vocab-word" href="https://www.google.com/search?tbm=isch&q=Übergabe" target="_blank">die Übergabe</a>
+                        <span class="vocab-ipa">[diː ˈyːbɐɡaːbə]</span><br>
+                        <span class="vocab-vietnamese">việc bàn giao</span>
+                        <div class="vocab-sample">Die Übergabe ist für die Kontinuität der Pflege wichtig.</div>
+                        <div class="vocab-controls">
+                            <button class="sound-button" onclick="playSound('uebergabe')">🔊</button>
+                        </div>
+                    </div>
+
+                    <div class="vocab-item">
+                        <a class="vocab-word" href="https://www.google.com/search?tbm=isch&q=Kontinuität+der+Pflege" target="_blank">die Kontinuität der Pflege</a>
+                        <span class="vocab-ipa">[diː kɔntinuiˈtɛːt deːɐ̯ ˈpfleːɡə]</span><br>
+                        <span class="vocab-vietnamese">tính liên tục của việc chăm sóc</span>
+                        <div class="vocab-sample">Kontinuität der Pflege ist für Patienten sehr wichtig.</div>
+                        <div class="vocab-controls">
+                            <button class="sound-button" onclick="playSound('kontinuitaet')">🔊</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="interactive-exercise">
+                    <h3>Aktivität: <span class="emoji-bounce">🔗</span> <em class="vietnamese">Hoạt động</em></h3>
+                    <p><strong>Verbinden Sie das deutsche Wort mit der Bedeutung:</strong><br>
+                    <em class="vietnamese">Nối từ tiếng Đức với nghĩa:</em></p>
+                    
+                    <div class="exercise-item">
+                        <p>1. schusselig</p>
+                        <select class="exercise-input" id="vocab1">
+                            <option value="">Wählen Sie...</option>
+                            <option value="correct">vụng về</option>
+                            <option value="wrong1">phanh giường</option>
+                            <option value="wrong2">ca đêm</option>
+                        </select>
+                    </div>
+
+                    <div class="exercise-item">
+                        <p>2. die Nachtschicht</p>
+                        <select class="exercise-input" id="vocab2">
+                            <option value="">Wählen Sie...</option>
+                            <option value="wrong1">việc dùng thuốc</option>
+                            <option value="correct">ca đêm</option>
+                            <option value="wrong2">việc bàn giao</option>
+                        </select>
+                    </div>
+
+                    <div class="exercise-item">
+                        <p>3. die Übergabe</p>
+                        <select class="exercise-input" id="vocab3">
+                            <option value="">Wählen Sie...</option>
+                            <option value="wrong1">bác sĩ trực</option>
+                            <option value="wrong2">người hướng dẫn</option>
+                            <option value="correct">việc bàn giao</option>
+                        </select>
+                    </div>
+
+                    <button class="check-button" onclick="checkVocabulary()">Antworten überprüfen</button>
+                    <div id="vocabFeedback"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Grammar Section -->
+        <div id="grammar" class="lesson-panel">
+            <div class="grammar-section">
+                <h2><span class="emoji-bounce">📖</span> Grammatikteil <em class="vietnamese">Phần ngữ pháp</em></h2>
+                <p><strong>Zeit:</strong> 20 Minuten <span class="emoji-bounce">⏳</span> <em class="vietnamese">Thời gian: 20 phút</em></p>
+                <h3>Fokus: Modalverben im Präteritum <span class="emoji-bounce">🔤</span> <em class="vietnamese">Trọng tâm: Động từ khuyết thiếu ở thì quá khứ</em></h3>
+
+                <div class="grammar-examples">
+                    <h4>Konjugation: <span class="emoji-bounce">🔄</span> <em class="vietnamese">Chia động từ</em></h4>
+                    <table class="grammar-table">
+                        <thead>
+                            <tr>
+                                <th>Infinitiv</th>
+                                <th>ich</th>
+                                <th>du</th>
+                                <th>er/sie/es</th>
+                                <th>Vietnamese</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>müssen</strong></td>
+                                <td>ich musste</td>
+                                <td>du musstest</td>
+                                <td>er/sie/es musste</td>
+                                <td><em>phải</em></td>
+                            </tr>
+                            <tr>
+                                <td><strong>können</strong></td>
+                                <td>ich konnte</td>
+                                <td>du konntest</td>
+                                <td>er/sie/es konnte</td>
+                                <td><em>có thể</em></td>
+                            </tr>
+                            <tr>
+                                <td><strong>wollen</strong></td>
+                                <td>ich wollte</td>
+                                <td>du wolltest</td>
+                                <td>er/sie/es wollte</td>
+                                <td><em>muốn</em></td>
+                            </tr>
+                            <tr>
+                                <td><strong>sollen</strong></td>
+                                <td>ich sollte</td>
+                                <td>du solltest</td>
+                                <td>er/sie/es sollte</td>
+                                <td><em>nên</em></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="grammar-examples">
+                    <h4>Beispiele aus dem Text: <span class="emoji-bounce">📚</span> <em class="vietnamese">Ví dụ từ văn bản</em></h4>
+                    <ul>
+                        <li>"Tim <strong>wollte</strong> einer älteren Dame helfen" <em class="vietnamese">Tim muốn giúp một bà cụ</em></li>
+                        <li>"Er <strong>sollte</strong> Frau Schmidt beim Duschen helfen" <em class="vietnamese">Anh ấy nên giúp bà Schmidt tắm</em></li>
+                        <li>"Anna <strong>musste</strong> den Bereitschaftsarzt anrufen" <em class="vietnamese">Anna phải gọi bác sĩ trực</em></li>
+                        <li>"Sie <strong>konnte</strong> alle Patienten versorgen" <em class="vietnamese">Cô ấy có thể chăm sóc tất cả bệnh nhân</em></li>
+                    </ul>
+                </div>
+
+                <div class="interactive-exercise">
+                    <h3>Übung: <span class="emoji-bounce">✍️</span> <em class="vietnamese">Bài tập</em></h3>
+                    <p><strong>Setzen Sie das richtige Modalverb ein:</strong><br>
+                    <em class="vietnamese">Điền động từ khuyết thiếu đúng:</em></p>
+
+                    <div class="exercise-item">
+                        <p>1. Tim _______ die Bettbremse aktivieren. (sollen)</p>
+                        <input type="text" class="exercise-input" id="grammar1" placeholder="Ihre Antwort hier...">
+                    </div>
+
+                    <div class="exercise-item">
+                        <p>2. Anna _______ alle Ereignisse dokumentieren. (müssen)</p>
+                        <input type="text" class="exercise-input" id="grammar2" placeholder="Ihre Antwort hier...">
+                    </div>
+
+                    <div class="exercise-item">
+                        <p>3. Die Kollegin _______ Tim helfen. (wollen)</p>
+                        <input type="text" class="exercise-input" id="grammar3" placeholder="Ihre Antwort hier...">
+                    </div>
+
+                    <button class="check-button" onclick="checkGrammar()">Antworten überprüfen</button>
+                    <div id="grammarFeedback"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reading Section -->
+        <div id="reading" class="lesson-panel">
+            <div class="production-section">
+                <h2><span class="emoji-bounce">📚</span> Leseteil <em class="vietnamese">Phần đọc</em></h2>
+                <p><strong>Zeit:</strong> 25 Minuten <span class="emoji-bounce">⏳</span> <em class="vietnamese">Thời gian: 25 phút</em></p>
+
+                <h3>Text A: Der schusselige Praktikant <span class="emoji-bounce">🧑‍⚕️</span></h3>
+                <div class="reading-text">
+                    <p>Tim macht sein Pflegepraktikum im Krankenhaus und ist sehr motiviert - aber leider auch ziemlich schusselig. Heute ist sein dritter Tag, und er hat schon kleine Katastrophen erlebt.</p>
+                    
+                    <p>Am ersten Tag wollte er einer älteren Dame beim Aufstehen helfen. Dabei vergaß er, die Bettbremse zu aktivieren. Das Bett rollte weg, und beide fielen fast hin. "Junge, Sie müssen aufpassen!", lachte die Patientin. "Sonst brauche ich nachher noch einen Rollstuhl!"</p>
+                    
+                    <p>Gestern verwechselte Tim zwei Zimmernummern. Er brachte Herrn Meyer das Frühstück für Herrn Weber: vegetarisches Müsli statt Leberwurst-Brot. Herr Meyer schaute sehr überrascht auf den Teller: "Junger Mann, ich bin doch kein Kaninchen!" Tim wurde knallrot und entschuldigte sich hundertmal.</p>
+                    
+                    <p>Heute morgen passierte schon wieder etwas Lustiges. Tim sollte Frau Schmidt beim Duschen helfen. Er vergaß, die Wassertemperatur zu prüfen. Als das kalte Wasser kam, schrie Frau Schmidt: "Himmel, das ist ja eiskalt! Wollen Sie mich wachmachen oder einfrieren?"</p>
+                    
+                    <p>Seine Praxisanleiterin Susanne ist trotzdem geduldig mit ihm. "Tim ist sehr hilfsbereit und freundlich", sagt sie. "Er macht zwar manchmal kleine Fehler, aber er lernt schnell und die Patienten mögen ihn."</p>
+                    
+                    <p>Das stimmt: Die Bewohner finden Tim lustig und charmant. Herr Paulsen sagt immer: "Wenn Tim kommt, ist der Tag gleich fröhlicher!" Frau Wagner hat ihm sogar selbstgestrickte Socken geschenkt.</p>
+                    
+                    <p>Tim ist trotz seiner kleinen Pannen sehr beliebt. Seine Kollegin Anna meint: "Ein bisschen Humor schadet nicht. Lachen ist auch Medizin!" Am Ende seiner Praktikumszeit möchte das ganze Team, dass Tim nach seiner Ausbildung wiederkommt.</p>
+                    
+                    <p>"Ich werde bestimmt vorsichtiger", verspricht Tim. "Aber den Humor behalte ich - der gehört zur guten Pflege dazu!"</p>
+                </div>
+
+                <h3>Text B: Die Nachtschicht <span class="emoji-bounce">🌙</span></h3>
+                <div class="reading-text">
+                    <p>Schwester Anna beginnt ihre Nachtschicht um 22 Uhr. Obwohl das Krankenhaus in der Nacht ruhiger wird, gibt es immer noch viel zu tun. Während sie die Patientenakte durchliest, überprüft sie die Medikation, die während der Nacht verabreicht werden muss.</p>
+                    
+                    <p>Herr Weber, der nach einer Operation im Zimmer 205 liegt, klingelt um Mitternacht. "Ich habe starke Schmerzen", klagt er. Anna überprüft seine Akte und stellt fest, dass er bereits die maximale Dosis Schmerzmittel erhalten hat. Sie ruft den Bereitschaftsarzt an, der eine andere Medikation verordnet.</p>
+                    
+                    <p>Um 3 Uhr morgens wird eine ältere Dame eingeliefert, die gestürzt ist. Die Angehörigen, die sehr besorgt sind, begleiten sie. "Ist meine Mutter in Gefahr?", fragt die Tochter ängstlich. Anna beruhigt sie und erklärt, dass alle notwendigen Untersuchungen durchgeführt werden.</p>
+                    
+                    <p>Bevor die Tagschicht beginnt, dokumentiert Anna alle Ereignisse der Nacht. Die Übergabe an ihre Kollegin ist sehr wichtig, damit die Kontinuität der Pflege gewährleistet ist. Obwohl die Nachtarbeit anstrengend ist, schätzt Anna die besondere Atmosphäre und die intensivere Betreuung der Patienten.</p>
+                </div>
+
+                <div class="error-analysis">
+                    <h3>Fehleranalyse <span class="emoji-bounce">🔍</span> <em class="vietnamese">Phân tích lỗi</em></h3>
+                    <p><strong>Diskutieren Sie Tims Fehler und schreiben Sie die korrekte Vorgehensweise:</strong><br>
+                    <em class="vietnamese">Thảo luận về lỗi của Tim và viết quy trình đúng:</em></p>
+
+                    <div class="error-item">
+                        <p><strong>Fehler:</strong> Tim vergisst die Bettbremse zu aktivieren</p>
+                        <p><strong>Korrekte Vorgehensweise:</strong> <em class="vietnamese">Quy trình đúng:</em></p>
+                        <input type="text" class="exercise-input" id="error1" placeholder="Schreiben Sie hier...">
+                    </div>
+
+                    <div class="error-item">
+                        <p><strong>Fehler:</strong> Tim prüft die Wassertemperatur nicht</p>
+                        <p><strong>Korrekte Vorgehensweise:</strong></p>
+                        <input type="text" class="exercise-input" id="error2" placeholder="Schreiben Sie hier...">
+                    </div>
+
+                    <div class="error-item">
+                        <p><strong>Fehler:</strong> Tim verwechselt Zimmernummern</p>
+                        <p><strong>Korrekte Vorgehensweise:</strong></p>
+                        <input type="text" class="exercise-input" id="error3" placeholder="Schreiben Sie hier...">
+                    </div>
+
+                    <button class="check-button" onclick="saveErrors()">Antworten speichern</button>
+                    <div id="errorFeedback"></div>
+                </div>
+
+                <div class="interactive-exercise">
+                    <h3>Textverständnis <span class="emoji-bounce">❓</span> <em class="vietnamese">Hiểu bài đọc</em></h3>
+                    <p><strong>Beantworten Sie die Fragen:</strong> <em class="vietnamese">Trả lời câu hỏi:</em></p>
+
+                    <div class="exercise-item">
+                        <p>1. Warum ist Tim bei den Patienten beliebt? <em class="vietnamese">Tại sao Tim được bệnh nhân yêu thích?</em></p>
+                        <textarea class="exercise-input" id="reading1" placeholder="Ihre Antwort..."></textarea>
+                    </div>
+
+                    <div class="exercise-item">
+                        <p>2. Was passiert um Mitternacht in der Nachtschicht? <em class="vietnamese">Điều gì xảy ra lúc nửa đêm trong ca đêm?</em></p>
+                        <textarea class="exercise-input" id="reading2" placeholder="Ihre Antwort..."></textarea>
+                    </div>
+
+                    <div class="exercise-item">
+                        <p>3. Warum ist die Übergabe wichtig? <em class="vietnamese">Tại sao việc bàn giao quan trọng?</em></p>
+                        <textarea class="exercise-input" id="reading3" placeholder="Ihre Antwort..."></textarea>
+                    </div>
+
+                    <button class="check-button" onclick="saveReading()">Antworten speichern</button>
+                    <div id="readingFeedback"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Listening and Speaking Section -->
+        <div id="listening" class="lesson-panel">
+            <div class="production-section">
+                <h2><span class="emoji-bounce">🎧</span> Hör- und Sprechteil <em class="vietnamese">Phần nghe và nói</em></h2>
+                <p><strong>Zeit:</strong> 15 Minuten <span class="emoji-bounce">⏳</span> <em class="vietnamese">Thời gian: 15 phút</em></p>
+
+                <h3>Diktat-Übung <span class="emoji-bounce">📝</span> <em class="vietnamese">Bài tập chính tả</em></h3>
+                <p><strong>Partner A liest vor, Partner B schreibt:</strong><br>
+                <em class="vietnamese">Bạn A đọc, Bạn B viết:</em></p>
+
+                <div class="interactive-exercise">
+                    <div class="exercise-item">
+                        <p><strong>Satz 1:</strong> <button class="sound-button" onclick="playDictation(1)">🔊 Anhören</button></p>
+                        <input type="text" class="exercise-input" id="dictation1" placeholder="Schreiben Sie hier...">
+                        <div class="print-only">
+                            <em>Text: "Die Nachtschicht erfordert besondere Aufmerksamkeit."</em>
+                        </div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <p><strong>Satz 2:</strong> <button class="sound-button" onclick="playDictation(2)">🔊 Anhören</button></p>
+                        <input type="text" class="exercise-input" id="dictation2" placeholder="Schreiben Sie hier...">
+                        <div class="print-only">
+                            <em>Text: "Praktikanten müssen die Bettbremse immer aktivieren."</em>
+                        </div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <p><strong>Satz 3:</strong> <button class="sound-button" onclick="playDictation(3)">🔊 Anhören</button></p>
+                        <input type="text" class="exercise-input" id="dictation3" placeholder="Schreiben Sie hier...">
+                        <div class="print-only">
+                            <em>Text: "Der Bereitschaftsarzt verordnet neue Medikation."</em>
+                        </div>
+                    </div>
+
+                    <button class="check-button" onclick="checkDictation()">Rechtschreibung überprüfen</button>
+                    <div id="dictationFeedback"></div>
+                </div>
+
+                <h3>Rollenspiel <span class="emoji-bounce">🎭</span> <em class="vietnamese">Diễn kịch vai</em></h3>
+                <div class="production-section">
+                    <p><strong>Situation:</strong> Übergabe zwischen Nacht- und Tagschicht<br>
+                    <em class="vietnamese">Tình huống: Bàn giao giữa ca đêm và ca ngày</em></p>
+
+                    <div class="roleplay-setup">
+                        <p><strong>Person A:</strong> Nachtschicht <em class="vietnamese">(ca đêm)</em></p>
+                        <p><strong>Person B:</strong> Tagschicht <em class="vietnamese">(ca ngày)</em></p>
+                    </div>
+
+                    <div class="grammar-examples">
+                        <h4>Nützliche Ausdrücke: <span class="emoji-bounce">💬</span> <em class="vietnamese">Cụm từ hữu ích</em></h4>
+                        <ul>
+                            <li>"Herr X hatte in der Nacht..." <em class="vietnamese">Ông X đêm qua đã...</em></li>
+                            <li>"Die Medikation wurde..." <em class="vietnamese">Thuốc đã được...</em></li>
+                            <li>"Besonders zu beachten ist..." <em class="vietnamese">Cần đặc biệt chú ý...</em></li>
+                            <li>"Um ... Uhr..." <em class="vietnamese">Lúc ... giờ...</em></li>
+                            <li>"Der Patient klagte über..." <em class="vietnamese">Bệnh nhân phàn nàn về...</em></li>
+                            <li>"Es gab keine Probleme mit..." <em class="vietnamese">Không có vấn đề gì với...</em></li>
+                        </ul>
+                    </div>
+
+                    <div class="writing-area">
+                        <p><strong>Bereiten Sie Ihr Rollenspiel vor:</strong> <em class="vietnamese">Chuẩn bị diễn kịch của bạn:</em></p>
+                        <textarea class="writing-textarea" id="roleplayPrep" placeholder="Notieren Sie hier Ihre Ideen für das Rollenspiel..."></textarea>
+                        <div class="word-count" id="roleplayCount">0 Wörter</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Writing Section -->
+        <div id="writing" class="lesson-panel">
+            <div class="production-section">
+                <h2><span class="emoji-bounce">✍️</span> Schreibübung <em class="vietnamese">Bài tập viết</em></h2>
+                <p><strong>Zeit:</strong> 10 Minuten <span class="emoji-bounce">⏳</span> <em class="vietnamese">Thời gian: 10 phút</em></p>
+
+                <h3>Aufgabe: <span class="emoji-bounce">📝</span> <em class="vietnamese">Nhiệm vụ</em></h3>
+                <p><strong>Schreiben Sie einen Bericht über eine Nachtschicht (100-120 Wörter):</strong><br>
+                <em class="vietnamese">Viết báo cáo về ca đêm 100-120 từ:</em></p>
+
+                <div class="grammar-examples">
+                    <h4>Verwenden Sie diese Wörter: <span class="emoji-bounce">🗒️</span> <em class="vietnamese">Sử dụng những từ này:</em></h4>
+                    <ul>
+                        <li><strong>Nachtschicht</strong> - ca đêm</li>
+                        <li><strong>Medikation</strong> - việc dùng thuốc</li>
+                        <li><strong>Bereitschaftsarzt</strong> - bác sĩ trực</li>
+                        <li><strong>Übergabe</strong> - việc bàn giao</li>
+                        <li><strong>dokumentieren</strong> - ghi chép lại</li>
+                    </ul>
+                </div>
+
+                <div class="grammar-examples">
+                    <h4>Struktur: <span class="emoji-bounce">📑</span> <em class="vietnamese">Cấu trúc:</em></h4>
+                    <ul>
+                        <li><strong>Beginn der Schicht</strong> <em class="vietnamese">Bắt đầu ca</em></li>
+                        <li><strong>Wichtige Ereignisse</strong> <em class="vietnamese">Sự kiện quan trọng</em></li>
+                        <li><strong>Übergabe</strong> <em class="vietnamese">Bàn giao</em></li>
+                    </ul>
+                </div>
+
+                <div class="writing-area">
+                    <h4>"Nachtschicht vom 15. März 2025" <span class="emoji-bounce">🌙</span> <em class="vietnamese">Ca đêm ngày 15 tháng 3 năm 2025</em></h4>
+                    <textarea class="writing-textarea" id="nightshiftReport" placeholder="Beginnen Sie hier Ihren Bericht...
+
+Beispiel-Anfang:
+Um 22 Uhr begann meine Nachtschicht im Krankenhaus..."></textarea>
+                    <div class="word-count" id="reportCount">0/120 Wörter</div>
+                    <div class="save-indicator" id="saveIndicator"></div>
+                </div>
+
+                <h3>Hausaufgabe: <span class="emoji-bounce">🏠</span> <em class="vietnamese">Bài tập về nhà</em></h3>
+                <p><strong>Beschreiben Sie einen typischen Nachtdienst (50 Wörter)</strong><br>
+                <em class="vietnamese">Mô tả một ca đêm điển hình 50 từ</em></p>
+
+                <div class="writing-area">
+                    <textarea class="writing-textarea" id="homework" placeholder="Schreiben Sie hier Ihre Hausaufgabe..."></textarea>
+                    <div class="word-count" id="homeworkCount">0/50 Wörter</div>
+                    <div class="save-indicator" id="homeworkSave"></div>
+                </div>
+
+                <button class="check-button" onclick="saveAllWriting()">Alle Texte speichern</button>
+            </div>
+
+            <div class="vocabulary-section">
+                <h3>Zusammenfassung <span class="emoji-bounce">🧾</span> <em class="vietnamese">Tóm tắt</em></h3>
+                <p><strong>Heute haben wir gelernt:</strong> <em class="vietnamese">Hôm nay chúng ta đã học:</em></p>
+                <ul>
+                    <li>Umgang mit Fehlern in der Pflege <span class="emoji-bounce">❗</span> <em class="vietnamese">Cách xử lý lỗi trong chăm sóc</em></li>
+                    <li>Aufgaben der Nachtschicht <span class="emoji-bounce">🌙</span> <em class="vietnamese">Nhiệm vụ ca đêm</em></li>
+                    <li>Modalverben im Präteritum <span class="emoji-bounce">🔤</span> <em class="vietnamese">Động từ khuyết thiếu ở quá khứ</em></li>
+                    <li>Wichtigkeit der Übergabe <span class="emoji-bounce">🤝</span> <em class="vietnamese">Tầm quan trọng của việc bàn giao</em></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global variables for lesson management
+        let currentSection = 'overview';
+        let lessonProgress = {
+            overview: true,
+            vocabulary: false,
+            grammar: false,
+            reading: false,
+            listening: false,
+            writing: false
+        };
+
+        // Auto-save data
+        let saveTimeout;
+        let autosaveInterval;
+
+        // Initialize lesson on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadProgress();
+            updateProgress();
+            setupAutoSave();
+            restoreStudentInputs();
+        });
+
+        // Section navigation
+        function showSection(sectionId, event) {
+            // Hide all panels
+            const panels = document.querySelectorAll('.lesson-panel');
+            panels.forEach(panel => panel.classList.remove('active'));
+
+            // Hide all tab buttons
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => button.classList.remove('active'));
+
+            // Show selected panel and activate button
+            document.getElementById(sectionId).classList.add('active');
+            event.target.classList.add('active');
+
+            // Update progress
+            lessonProgress[sectionId] = true;
+            currentSection = sectionId;
+            updateProgress();
+            saveProgress();
+        }
+
+        // Progress management
+        function updateProgress() {
+            const completed = Object.values(lessonProgress).filter(x => x).length;
+            const total = Object.keys(lessonProgress).length;
+            const percentage = (completed / total) * 100;
+            
+            document.getElementById('progressBar').style.width = percentage + '%';
+        }
+
+        function saveProgress() {
+            const progress = {
+                currentSection: currentSection,
+                lessonProgress: lessonProgress,
+                timestamp: new Date().toISOString()
+            };
+            
+            // Use in-memory storage since localStorage not available in artifacts
+            window.lessonData = progress;
+        }
+
+        function loadProgress() {
+            // Load from in-memory storage
+            if (window.lessonData) {
+                const saved = window.lessonData;
+                lessonProgress = saved.lessonProgress || lessonProgress;
+                currentSection = saved.currentSection || 'overview';
+            }
+        }
+
+        // Audio functionality (Speech Synthesis only, standalone)
+        function playSound(word) {
+            if ('speechSynthesis' in window) {
+                var utter = new SpeechSynthesisUtterance(word);
+                utter.lang = 'de-DE';
+                window.speechSynthesis.speak(utter);
+
+                const feedback = document.createElement('div');
+                feedback.className = 'feedback correct';
+                feedback.textContent = `🔊 "${word}" wird mit Sprachausgabe vorgelesen...`;
+                feedback.style.position = 'fixed';
+                feedback.style.top = '20px';
+                feedback.style.right = '20px';
+                feedback.style.zIndex = '1000';
+                feedback.style.padding = '10px';
+                feedback.style.borderRadius = '5px';
+                document.body.appendChild(feedback);
+                setTimeout(() => {
+                    document.body.removeChild(feedback);
+                }, 2000);
+            } else {
+                alert('Sprachausgabe wird von Ihrem Browser nicht unterstützt.');
+            }
+        }
+
+        function playDictation(number) {
+            const sentences = {
+                1: "Die Nachtschicht erfordert besondere Aufmerksamkeit.",
+                2: "Praktikanten müssen die Bettbremse immer aktivieren.",
+                3: "Der Bereitschaftsarzt verordnet neue Medikation."
+            };
+            
+            const feedback = document.createElement('div');
+            feedback.className = 'feedback';
+            feedback.style.background = '#e3f2fd';
+            feedback.style.color = '#1565c0';
+            feedback.textContent = `🔊 "${sentences[number]}"`;
+            feedback.style.position = 'fixed';
+            feedback.style.top = '20px';
+            feedback.style.right = '20px';
+            feedback.style.zIndex = '1000';
+            feedback.style.padding = '10px';
+            feedback.style.borderRadius = '5px';
+            
+            document.body.appendChild(feedback);
+            
+            setTimeout(() => {
+                document.body.removeChild(feedback);
+            }, 3000);
+        }
+
+        // Exercise checking functions
+        function checkVocabulary() {
+            const answers = {
+                vocab1: 'correct',
+                vocab2: 'correct',
+                vocab3: 'correct'
+            };
+            
+            let correct = 0;
+            let total = Object.keys(answers).length;
+            
+            for (let id in answers) {
+                const select = document.getElementById(id);
+                const isCorrect = select.value === answers[id];
+                if (isCorrect) correct++;
+                
+                select.style.borderColor = isCorrect ? '#28a745' : '#dc3545';
+            }
+            
+            const feedback = document.getElementById('vocabFeedback');
+            feedback.innerHTML = `
+                <div class="feedback ${correct === total ? 'correct' : 'incorrect'}">
+                    ${correct}/${total} richtig! 
+                    ${correct === total ? 'Ausgezeichnet! 🎉' : 'Versuchen Sie es noch einmal.'}
+                </div>
+            `;
+        }
+
+        function checkGrammar() {
+            const answers = {
+                grammar1: 'sollte',
+                grammar2: 'musste',
+                grammar3: 'wollte'
+            };
+            
+            let correct = 0;
+            let total = Object.keys(answers).length;
+            
+            for (let id in answers) {
+                const input = document.getElementById(id);
+                const userAnswer = input.value.toLowerCase().trim();
+                const isCorrect = userAnswer === answers[id];
+                if (isCorrect) correct++;
+                
+                input.style.borderColor = isCorrect ? '#28a745' : '#dc3545';
+            }
+            
+            const feedback = document.getElementById('grammarFeedback');
+            feedback.innerHTML = `
+                <div class="feedback ${correct === total ? 'correct' : 'incorrect'}">
+                    ${correct}/${total} richtig! 
+                    ${correct === total ? 'Sehr gut! 🎉' : 'Überprüfen Sie die Modalverben im Präteritum.'}
+                </div>
+            `;
+        }
+
+        function checkDictation() {
+            const correctSentences = {
+                dictation1: "Die Nachtschicht erfordert besondere Aufmerksamkeit.",
+                dictation2: "Praktikanten müssen die Bettbremse immer aktivieren.",
+                dictation3: "Der Bereitschaftsarzt verordnet neue Medikation."
+            };
+            
+            let feedback = '<div class="feedback correct"><h4>Rechtschreibung überprüft:</h4>';
+            
+            for (let id in correctSentences) {
+                const input = document.getElementById(id);
+                const userText = input.value.trim();
+                const correctText = correctSentences[id];
+                
+                feedback += `<p><strong>Satz ${id.slice(-1)}:</strong><br>`;
+                feedback += `Ihre Antwort: "${userText}"<br>`;
+                feedback += `Korrektur: "${correctText}"</p>`;
+            }
+            
+            feedback += '</div>';
+            
+            const feedbackElement = document.getElementById('dictationFeedback');
+            feedbackElement.innerHTML = feedback;
+        }
+
+        function saveErrors() {
+            const errors = {
+                error1: document.getElementById('error1').value,
+                error2: document.getElementById('error2').value,
+                error3: document.getElementById('error3').value
+            };
+            
+            const feedback = document.getElementById('errorFeedback');
+            feedback.innerHTML = `
+                <div class="feedback correct">
+                    ${Object.entries(errors).map(([id, answer]) => {
+                        return `<p><strong>Fehler:</strong> ${id.replace(/[0-9]/g, '')}: ${answer}</p>`;
+                    }).join('')}
+                </div>
+            `;
+        }
+
+        function saveReading() {
+            const answers = {
+                reading1: document.getElementById('reading1').value,
+                reading2: document.getElementById('reading2').value,
+                reading3: document.getElementById('reading3').value
+            };
+            
+            const feedback = document.getElementById('readingFeedback');
+            feedback.innerHTML = `
+                <div class="feedback correct">
+                    ${Object.entries(answers).map(([id, answer]) => {
+                        return `<p><strong>Frage:</strong> ${id.replace(/[0-9]/g, '').replace(/[A-Z]/g, '').replace(/[a-z]/g, '').replace(/[.,!?]/g, '').replace(/[ ]/g, ' ')}: ${answer}</p>`;
+                    }).join('')}
+                </div>
+            `;
+        }
+
+        function saveAllWriting() {
+            const report = document.getElementById('nightshiftReport').value;
+            const homework = document.getElementById('homework').value;
+            
+            const feedback = document.getElementById('reportCount');
+            feedback.textContent = `${report.length}/${report.split('').filter(c => c !== ' ').length} Wörter`;
+            
+            const homeworkFeedback = document.getElementById('homeworkCount');
+            homeworkFeedback.textContent = `${homework.length}/${homework.split('').filter(c => c !== ' ').length} Wörter`;
+            
+            const saveIndicator = document.getElementById('saveIndicator');
+            saveIndicator.textContent = 'Alle Texte gespeichert!';
+        }
+
+        // --- AUTOSAVE FEATURE ---
+        function setupAutoSave() {
+            if (autosaveInterval) clearInterval(autosaveInterval);
+            autosaveInterval = setInterval(() => {
+                saveStudentInputs();
+                showAutosavePopup();
+            }, 60000); // 1 minute
+        }
+
+        function saveStudentInputs() {
+            const data = {
+                // Writing section
+                nightshiftReport: document.getElementById('nightshiftReport')?.value || '',
+                homework: document.getElementById('homework')?.value || '',
+                // Reading section
+                reading1: document.getElementById('reading1')?.value || '',
+                reading2: document.getElementById('reading2')?.value || '',
+                reading3: document.getElementById('reading3')?.value || '',
+                // Error analysis
+                error1: document.getElementById('error1')?.value || '',
+                error2: document.getElementById('error2')?.value || '',
+                error3: document.getElementById('error3')?.value || '',
+                // Grammar exercise
+                grammar1: document.getElementById('grammar1')?.value || '',
+                grammar2: document.getElementById('grammar2')?.value || '',
+                grammar3: document.getElementById('grammar3')?.value || '',
+                // Vocabulary exercise
+                vocab1: document.getElementById('vocab1')?.value || '',
+                vocab2: document.getElementById('vocab2')?.value || '',
+                vocab3: document.getElementById('vocab3')?.value || '',
+                // Dictation
+                dictation1: document.getElementById('dictation1')?.value || '',
+                dictation2: document.getElementById('dictation2')?.value || '',
+                dictation3: document.getElementById('dictation3')?.value || '',
+                // Roleplay
+                roleplayPrep: document.getElementById('roleplayPrep')?.value || ''
+            };
+            try {
+                localStorage.setItem('germanLesson2StudentData', JSON.stringify(data));
+            } catch (e) {
+                // Ignore storage errors
+            }
+        }
+
+        function restoreStudentInputs() {
+            let data = {};
+            try {
+                data = JSON.parse(localStorage.getItem('germanLesson2StudentData')) || {};
+            } catch (e) {}
+            // Writing section
+            if (document.getElementById('nightshiftReport')) document.getElementById('nightshiftReport').value = data.nightshiftReport || '';
+            if (document.getElementById('homework')) document.getElementById('homework').value = data.homework || '';
+            // Reading section
+            if (document.getElementById('reading1')) document.getElementById('reading1').value = data.reading1 || '';
+            if (document.getElementById('reading2')) document.getElementById('reading2').value = data.reading2 || '';
+            if (document.getElementById('reading3')) document.getElementById('reading3').value = data.reading3 || '';
+            // Error analysis
+            if (document.getElementById('error1')) document.getElementById('error1').value = data.error1 || '';
+            if (document.getElementById('error2')) document.getElementById('error2').value = data.error2 || '';
+            if (document.getElementById('error3')) document.getElementById('error3').value = data.error3 || '';
+            // Grammar exercise
+            if (document.getElementById('grammar1')) document.getElementById('grammar1').value = data.grammar1 || '';
+            if (document.getElementById('grammar2')) document.getElementById('grammar2').value = data.grammar2 || '';
+            if (document.getElementById('grammar3')) document.getElementById('grammar3').value = data.grammar3 || '';
+            // Vocabulary exercise
+            if (document.getElementById('vocab1')) document.getElementById('vocab1').value = data.vocab1 || '';
+            if (document.getElementById('vocab2')) document.getElementById('vocab2').value = data.vocab2 || '';
+            if (document.getElementById('vocab3')) document.getElementById('vocab3').value = data.vocab3 || '';
+            // Dictation
+            if (document.getElementById('dictation1')) document.getElementById('dictation1').value = data.dictation1 || '';
+            if (document.getElementById('dictation2')) document.getElementById('dictation2').value = data.dictation2 || '';
+            if (document.getElementById('dictation3')) document.getElementById('dictation3').value = data.dictation3 || '';
+            // Roleplay
+            if (document.getElementById('roleplayPrep')) document.getElementById('roleplayPrep').value = data.roleplayPrep || '';
+        }
+
+        function showAutosavePopup() {
+            const popup = document.createElement('div');
+            popup.className = 'feedback correct';
+            popup.textContent = '💾 Autosave: Deine Eingaben wurden automatisch gespeichert!';
+            popup.style.position = 'fixed';
+            popup.style.bottom = '30px';
+            popup.style.right = '30px';
+            popup.style.background = '#007bff';
+            popup.style.color = 'white';
+            popup.style.fontWeight = 'bold';
+            popup.style.fontSize = '1.1rem';
+            popup.style.padding = '16px 28px';
+            popup.style.borderRadius = '10px';
+            popup.style.boxShadow = '0 4px 16px rgba(0,0,0,0.15)';
+            popup.style.zIndex = '9999';
+            popup.style.opacity = '0.95';
+            document.body.appendChild(popup);
+            setTimeout(() => {
+                if (popup.parentNode) popup.parentNode.removeChild(popup);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
